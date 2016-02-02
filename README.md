@@ -1,4 +1,4 @@
-DCinside Lite++
+DCinside Life++
 ==========
 
 Introduction
