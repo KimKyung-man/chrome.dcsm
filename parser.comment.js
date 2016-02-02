@@ -9,7 +9,6 @@ dclpp.parser.comment = function (xml) {
 	var rst = new Array;
 
 	var lists = xml.getElementById('comment_list');
-
 	if(lists) lists
 		= lists.getElementsByClassName('reply_line');
 	else return rst;

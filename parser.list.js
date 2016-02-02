@@ -8,15 +8,17 @@ if (typeof (dclpp) === 'undefined') {
 dclpp.parser.list = function (xml) {
     var rst = new Array;
 
-    var lists = (function(){
-        var table = document.getElementById('dgn_wide');
-        if(table) return table.getElementsByTagName('tbody')[0].children;
-        else return Array.prototype.slice.call(
-                document.getElementById('dgn_gallery_left')
-                .getElementsByTagName('thead')[0].children 
+    var lists = xml.getElementById('dgn_wide');
+    if(lists){
+        lists = lists.getElementsByTagName('tbody')[0].children;
+    } else if (
+        lists = xml.getElementById('dgn_gallery_left')
+    ){
+        lists = Array.prototype.slice.call(
+            lists.getElementsByTagName('thead')[0].children 
             , 1);   // children[0] is thead
-    })();
-
+    } else return undefined;
+        
     var index = {
         'num': 0,
         'title': 1,
