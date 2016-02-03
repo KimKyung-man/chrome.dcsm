@@ -29,8 +29,10 @@ define(function () {
             .getElementById('recommend_vote_down');
         rst['btn_userhit'] = xml
             .getElementById('confirm_userhit');
-        rst['cnt_rcmmd_up'] = rst['btn_rcmmd_up'].textContent;
-        rst['cnt_rcmmd_down'] = rst['btn_rcmmd_down'].textContent;
+        rst['cnt_rcmmd_up']
+            = rst['btn_rcmmd_up'].textContent.trim();
+        rst['cnt_rcmmd_down']
+            = rst['btn_rcmmd_down'].textContent.trim();
 
         return rst;
     }

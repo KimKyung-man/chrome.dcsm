@@ -9,7 +9,7 @@
   "author": "lesomnus@gmail.com",
 
   "content_scripts": [{
-    "matches":["http://gall.dcinside.com/board/lists/*"],
+    "matches":["http://gall.dcinside.com/board/*"],
     "js": [
       "lib/require.min.js",
       "lib/require-cs.js",
@@ -17,6 +17,6 @@
     ]
   }],
 
-  "permissions": ["http://gall.dcinside.com/board/lists/*"],
+  "permissions": ["http://gall.dcinside.com/board/*"],
   "web_accessible_resources": ["modules/*"]
 }

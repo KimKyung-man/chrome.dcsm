@@ -1,7 +1,9 @@
 define([
     './article',
     './comment',
-    './list'
+    './gall',
+    './list',
+    './queryString'
 ], function () {
     var rst = new Object;
     for (var i in arguments)
