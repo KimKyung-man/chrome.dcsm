@@ -1,3 +1,7 @@
-require(['./parser/.all'], function(parser){
-    console.log(parser);
+require.config({
+	baseUrl: chrome.extension.getURL('/') + 'modules/'
+});
+
+require(['parser/_all'], function(parser){
+    
 });

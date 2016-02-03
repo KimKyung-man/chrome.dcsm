@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "DCinside Life++",
+  "version": "0.0.0",
+
+  //"default_locale": "ko",
+  "description": "DCinside gall-ing helper",
+
+  "author": "lesomnus@gmail.com",
+
+  "content_scripts": [{
+    "matches":["http://gall.dcinside.com/board/lists/*"],
+    "js": [
+      "lib/require.min.js",
+      "lib/require-cs.js",
+      "main.js"
+    ]
+  }],
+
+  "permissions": ["http://gall.dcinside.com/board/lists/*"],
+  "web_accessible_resources": ["modules/*"]
+}
