@@ -2,7 +2,10 @@
     parser/gall.js
     parse gall info using xml
 */
-define(['./queryString'],function (qs) {
+define([
+    './queryString',
+    'dcStatic/gallImg'
+],function (qs, gimg) {
     function gall(xml) {
         url = xml.location.href;
 
@@ -13,6 +16,7 @@ define(['./queryString'],function (qs) {
             .getElementsByClassName('gallery_title')[0]
             .getElementsByClassName('tit')[0]
             .textContent.trim();
+        rst['img'] = gimg(rst['id']);
         
         return rst;
     }
