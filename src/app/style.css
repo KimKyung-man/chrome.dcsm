@@ -1,7 +1,67 @@
-#dclpp{
+#dclpp {
 	height: 100vh;
 }
 
-#dclpp-body{
+#dclpp-body {
 	padding-top: 50px;
+}
+
+#dclpp-list {
+	height: calc(100vh - 50px);
+	padding: 0;
+	border-right: 1px solid #ddd;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#dclpp-article{
+	height: calc(100vh - 50px);
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#dclpp-article-content{
+	height: 10vh;
+}
+
+#dclpp-comment-write > div > div {
+	padding-left: 0;
+	padding-right: 5px;
+}
+
+#dclpp-comment-write > div > div > div:first-child {
+	padding-bottom: 5px;
+}
+
+#dclpp-comment-write > div > div:first-child {
+	padding-left: 15px;
+}
+
+#dclpp-comment-write > div > div:last-child {
+	padding-right: 15px;
+}
+
+#dclpp-comment-write textarea {
+	resize: none;
+}
+
+
+.list-group > .list-group-item {
+	border-right: 0;
+	border-left: 0;
+}
+
+.list-group > .list-group-item:first-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.list-group > .list-group-item:last-child {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.list-group > .list-group-item > .list-group-item-heading {
+	overflow: hidden;
+	white-space: nowrap;
 }
