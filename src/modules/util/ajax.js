@@ -1,8 +1,8 @@
 /*
     util/ajax.js
 */
-define(['jquery-2.2.0.min'], function ($){
-	function ajax(head, cb){
+define(['jquery-2.2.0.min'], function ($) {
+    function ajax(head, cb) {
 
         // why the fuck doesnt fucking work.
         /*
@@ -22,23 +22,18 @@ define(['jquery-2.2.0.min'], function ($){
 		req.onreadystatechange = function(){
             console.log(req);
         };
-        console.log(params);
     	req.send(params);
         */
 
         $.ajax({
-            'type' : 'POST',
+            'type': head.type,
             'chach': false,
             'async': false,
-            'url'  : head.url,
-            'data' : head.data,
-            'success': function(data){
-                console.log(data);
-            },
-            'err': function(data){
-                console.log(arguments)
-            }
+            'url': head.url,
+            'data': head.data ? head.data : null,
+            'success': cb,
+            'err': cb
         });
-	}
+    }
     return ajax;
 });
