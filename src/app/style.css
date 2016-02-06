@@ -24,6 +24,23 @@
 	height: 10vh;
 }
 
+#dclpp-comment-list table > thead > tr > th {
+    padding: 0;
+}
+
+#dclpp-comment-list table > tbody > tr > td {
+	vertical-align: middle;
+}
+
+#dclpp-comment-list table > tbody > tr > td:first-child {
+
+}
+
+#dclpp-comment-list table > tbody > tr > td:last-child {
+	font-size: 80%;
+	text-align: right;
+}
+
 #dclpp-comment-write > div > div {
 	padding-left: 0;
 	padding-right: 5px;
