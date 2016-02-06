@@ -17,7 +17,7 @@ require([
 		'url':  chrome.extension.getURL ("app/index.html"),
 	}, function(data){
 		var inject = document.createElement('div');
-		inject.id = 'dclpp';
+		inject.id = 'dcsm';
 		inject.innerHTML = data;
 		document.body.appendChild(inject);
 	});

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>dclpp</title>
+    <title>dcsm</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div id="dclpp-body" class="container-fluid">
+    <div id="dcsm-body" class="container-fluid">
 
         <!-- navbar -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -44,13 +44,19 @@
         <div class="row">
 
             <!-- list -->
-            <div id="dclpp-list" class="col-sm-4 col-xs-12">
+            <div id="dcsm-list" class="col-sm-4 col-xs-12">
                 <div class="list-group">
                     <!-- for test -->
                     <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">List group item heading</h4>
+                        <h4 class="list-group-item-heading" data-dcsm='list-item-title'>
+                            List group item heading
+                        </h4>
                         <p class="list-group-item-text">
-                            <small>잠온당 | 192.168.*.* | 234</small>
+                            <small>
+                                <span data-dcsm='list-item-username'>잠온당</span>
+                                <span data-dcsm='list-item-ip'>192.168.*.*</span>
+                                <span data-dcsm='list-item-date'>234</span>
+                            </small>
                         </p>
                     </a>
                     <a href="#" class="list-group-item">
@@ -124,8 +130,8 @@
             </div>
 
             <!-- content -->
-            <div id="dclpp-article" class="col-sm-8 col-xs-12 hidden-xs">
-                <div id="dclpp-article-head">
+            <div id="dcsm-article" class="col-sm-8 col-xs-12 hidden-xs">
+                <div id="dcsm-article-head">
                         <h1>Title</h1>
                         <ol class="breadcrumb">
                             <li>asdf</li>
@@ -134,14 +140,14 @@
                             <li>asdf</li>
                         </ol>
                 </div>
-                <div id="dclpp-article-content">
+                <div id="dcsm-article-content">
                     <!-- for test -->
                     this is content test
                     <!-- end of: for test -->
                 </div>
-                <div id="dclpp-comment">
+                <div id="dcsm-comment">
                     <!-- for test -->
-                    <div id="dclpp-comment-list">
+                    <div id="dcsm-comment-list">
                         <h3>Comment <small>asdf</small></h3>
                             <table class="table">
                                 <thead>
@@ -172,7 +178,7 @@
                     </div>
                     <!-- end of: for test -->
 
-                    <form id="dclpp-comment-write">
+                    <form id="dcsm-comment-write">
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="input-group">

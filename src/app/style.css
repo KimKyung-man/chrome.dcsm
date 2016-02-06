@@ -1,12 +1,12 @@
-#dclpp {
+#dcsm {
 	height: 100vh;
 }
 
-#dclpp-body {
+#dcsm-body {
 	padding-top: 50px;
 }
 
-#dclpp-list {
+#dcsm-list {
 	height: calc(100vh - 50px);
 	padding: 0;
 	border-right: 1px solid #ddd;
@@ -14,51 +14,51 @@
 	overflow-y: auto;
 }
 
-#dclpp-article{
+#dcsm-article{
 	height: calc(100vh - 50px);
 	overflow-x: hidden;
 	overflow-y: auto;
 }
 
-#dclpp-article-content{
+#dcsm-article-content{
 	height: 10vh;
 }
 
-#dclpp-comment-list table > thead > tr > th {
+#dcsm-comment-list table > thead > tr > th {
     padding: 0;
 }
 
-#dclpp-comment-list table > tbody > tr > td {
+#dcsm-comment-list table > tbody > tr > td {
 	vertical-align: middle;
 }
 
-#dclpp-comment-list table > tbody > tr > td:first-child {
+#dcsm-comment-list table > tbody > tr > td:first-child {
 
 }
 
-#dclpp-comment-list table > tbody > tr > td:last-child {
+#dcsm-comment-list table > tbody > tr > td:last-child {
 	font-size: 80%;
 	text-align: right;
 }
 
-#dclpp-comment-write > div > div {
+#dcsm-comment-write > div > div {
 	padding-left: 0;
 	padding-right: 5px;
 }
 
-#dclpp-comment-write > div > div > div:first-child {
+#dcsm-comment-write > div > div > div:first-child {
 	padding-bottom: 5px;
 }
 
-#dclpp-comment-write > div > div:first-child {
+#dcsm-comment-write > div > div:first-child {
 	padding-left: 15px;
 }
 
-#dclpp-comment-write > div > div:last-child {
+#dcsm-comment-write > div > div:last-child {
 	padding-right: 15px;
 }
 
-#dclpp-comment-write textarea {
+#dcsm-comment-write textarea {
 	resize: none;
 }
 
