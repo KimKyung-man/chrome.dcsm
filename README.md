@@ -1,4 +1,4 @@
-DCinside Life++
+DCsm
 ==========
 
 Introduction
