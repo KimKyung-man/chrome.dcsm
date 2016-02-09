@@ -1,5 +1,5 @@
 /*
-    control/List.js
+    control/list.js
 */
 define([
     './ListItem',
@@ -11,10 +11,9 @@ define([
     var list = {
         currentPage : 1,
         init: function(){
-            console.log("qwer");
             elem = document.getElementById('dcsm-list').children[0];
             var crntPg = qs('page', document.location.href);
-            if(qs) list.currentPage = qs;
+            if(crntPg) list.currentPage = parseInt(crntPg);
         },
         items: new Array,
         addItem: function (data) {
