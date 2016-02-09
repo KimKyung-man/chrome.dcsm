@@ -13,12 +13,16 @@ define([
     var comment = {
         init: function () {
             elem = document.getElementById('dcsm-comment-list')
-                .getElementsByTagName('tbody');
+                .getElementsByTagName('tbody')[0];
             csrf_token = util.getCookie('ci_c');
         },
+        items: new Array(),
         refresh: function () {
             var self = this;
             
+            // init
+            comment.items = new Array();
+            elem.innerHTML = "";
             util.ajax({
               'type': 'POST',
               'url': '/comment/view/',
@@ -31,8 +35,12 @@ define([
                 var doc = document.implementation.createHTMLDocument('');
                 doc.open();
                 doc.write(data);
-                // parse
-                parser.comment(doc);
+                var parsed = parser.comment(doc);
+                for(var i in parsed){
+                    var item = new CommentItem(parsed[i]);
+                    comment.items.push(item);
+                    elem.appendChild(item.elem);
+                }
                 doc.close();
             });
         },

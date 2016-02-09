@@ -10,7 +10,7 @@ define(function () {
         return rst;
     }
 
-    function ListItem(data) {
+    function CommentItem(data) {
         var self = this;
         // elem create logic
         /*
@@ -44,7 +44,8 @@ define(function () {
         this.elem_gallcon = _elem_gallcon;
         this.elem_content = _elem_content;
         this.elem_date = _elem_date;
-
+        
+        console.log(data);
         if (!data) return;
         else this.data = data;
 
@@ -54,25 +55,25 @@ define(function () {
         this.setDate(data.date);
     }
 
-    ListItem.prototype.setAuthor = function (str) {
+    CommentItem.prototype.setAuthor = function (str) {
         this.elem_author.textContent = str;
     }
 
-    ListItem.prototype.setGallcon = function (strUrl) {
+    CommentItem.prototype.setGallcon = function (strUrl) {
         if(!strUrl)
             return this.elem_gallcon.innerHTML = "";
         if (!this.elem_gallcon.children.length)
-            this.elem_gallcon.append(document.createElement('img'))
+            this.elem_gallcon.appendChild(document.createElement('img'))
         this.elem_gallcon.children[0].src = strUrl;
     }
 
-    ListItem.prototype.setContent = function (str) {
+    CommentItem.prototype.setContent = function (str) {
         this.elem_content.textContent = str;
     }
 
-    ListItem.prototype.setDate = function (str) {
+    CommentItem.prototype.setDate = function (str) {
         this.elem_date.textContent = str;
     }
     
-    return ListItem;
+    return CommentItem;
 });

@@ -15,10 +15,13 @@ define(function () {
 
             rstItem['user_id']
             = itemBody[0].getAttribute('user_id');
-            rstItem['user_name']
+            rstItem['author'] = rstItem['user_name']
             = itemBody[0].getAttribute('user_name');
             rstItem['date']
             = itemBody[2].textContent.trim();
+            rstItem['gallcon']
+            = itemBody[0].children[1]
+            ? itemBody[0].children[1].children[0].src : null;
 
             rstItem['content'] = (function () {
                 var dccon
