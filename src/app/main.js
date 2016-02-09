@@ -22,7 +22,7 @@ require([
             var doc = document.implementation.createHTMLDocument('');
             doc.open();
             doc.write(data);
-            console.log(parser.article.call(this, doc));
+            control.content.update(parser.content.call(this, doc));
             doc.close();
         });
     };

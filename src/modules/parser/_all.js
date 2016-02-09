@@ -1,5 +1,5 @@
 define([
-    './article',
+    './content',
     './comment',
     './gall',
     './list',
