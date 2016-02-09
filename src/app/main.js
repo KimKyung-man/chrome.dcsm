@@ -1,28 +1,53 @@
 require.config({
-	baseUrl: chrome.extension.getURL('/') + 'modules/'
+    baseUrl: chrome.extension.getURL('/') + 'modules/'
 });
 
 require([
-	'parser/_all',
-	'util/_all',
-	'writer/_all'
-], function(parser, util, writer){
+    'control/_all',
+    'parser/_all',
+    'util/_all',
+    'writer/_all'
+], function (control, parser, util, writer) {
 
-	// hide origin dc interface
-	document.getElementById('dgn_wrap').style.display = 'none'
+    // hide origin dc interface
+    document.getElementById('dgn_wrap').style.display = 'none'
 
-	// load app interface
-	util.ajax({
-		'type': 'GET',
-		'url':  chrome.extension.getURL ("app/index.html"),
-	}, function(data){
-		var inject = document.createElement('div');
-		inject.id = 'dcsm';
-		inject.innerHTML = data;
-		document.body.appendChild(inject);
-	});
+    // define control event
+    control.ListItem.prototype.onclick = function(){
+        var self = this;
+        util.ajax({
+            'type': 'GET',
+            'url': self.data.link
+        }, function(data){
+            var doc = document.implementation.createHTMLDocument('');
+            doc.open();
+            doc.write(data);
+            console.log(parser.article.call(this, doc));
+            doc.close();
+        });
+    };
 
-	// var inject  = document.createElement("div");
-	// inject.innerHTML = xmlHttp.responseText
-	// document.body.insertBefore (inject, document.body.firstChild);
+    // load app interface
+    util.ajax({
+        'type': 'GET',
+        'url': chrome.extension.getURL("app/index.html"),
+    }, function (data) {
+       
+        // inject
+        var inject = document.createElement('div');
+        inject.id = 'dcsm';
+        inject.innerHTML = data;
+        document.body.appendChild(inject);
+
+        // control init
+        control.list.init();
+        control.content.init();
+
+        var list = parser.list(document);
+        for (var i in list) {
+            if (typeof(list[i].num) !== 'number')
+                continue; // notice
+            control.list.addItem(list[i]);
+        }
+    });
 });

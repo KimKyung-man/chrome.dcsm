@@ -28,9 +28,9 @@ define(['jquery-2.2.0.min'], function ($) {
         $.ajax({
             'type': head.type,
             'chach': false,
-            'async': false,
+            'async': true,
             'url': head.url,
-            'data': head.data ? head.data : null,
+            'data': head.data ? head.data : undefined,
             'success': cb,
             'err': cb
         });

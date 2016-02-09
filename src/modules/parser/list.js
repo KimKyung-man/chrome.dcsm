@@ -2,7 +2,7 @@
     parser/list.js
     parse list info using xml
 */
-define(function () {
+define(['./queryString'],function (qs) {
     function list(xml) {
         var rst = new Array;
 
@@ -35,6 +35,14 @@ define(function () {
                 = itemBody[index[prop]].textContent;
             }
 
+            if(!isNaN(rstItem['num'])){
+                if(rstItem['num'] === '' ){ // current
+                    rstItem['num']
+                    = parseInt(qs('no', this.url));
+                    rstItem.isCurrent = true;
+                } else rstItem['num'] = parseInt(rstItem['num']);
+            } 
+            
             rstItem['link']
             = itemBody[index['title']]
                 .children[0]            // <a>

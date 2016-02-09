@@ -17,7 +17,7 @@ define(function () {
             .getAttribute('user_id');
         rst['author'] = rst['user_name']
         = head[1].children[0].getAttribute('user_name');
-        rst['viewd'] = head[2].textContent.trim();
+        rst['viewed'] = head[2].textContent.trim();
         rst['cnt_comment'] = head[3].textContent.trim();
         rst['date'] = body.children[1]
             .textContent.trim();
