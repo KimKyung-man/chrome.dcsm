@@ -2,7 +2,7 @@
     control/ListItem.js
 */
 define(function () {
-
+    
     function elemCstr(tagName, className, dataDcsm) {
         var rst = document.createElement(tagName);
         if (className) rst.className = className;
@@ -45,7 +45,6 @@ define(function () {
         this.elem_content = _elem_content;
         this.elem_date = _elem_date;
         
-        console.log(data);
         if (!data) return;
         else this.data = data;
 

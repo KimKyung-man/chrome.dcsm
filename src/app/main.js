@@ -24,6 +24,7 @@ require([
             doc.write(data);
             control.article.update.call(this, doc);
             doc.close();
+            control.list.nextPage();
         });
     };
 
@@ -42,12 +43,5 @@ require([
         // control init
         control.list.init();
         control.article.init();
-
-        var list = parser.list(document);
-        for (var i in list) {
-            if (typeof(list[i].num) !== 'number')
-                continue; // notice
-            control.list.addItem(list[i]);
-        }
     });
 });
