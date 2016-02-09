@@ -1,4 +1,5 @@
 define([
+    './article',
 	'./content',
     './List',
     './ListItem'

@@ -22,7 +22,7 @@ require([
             var doc = document.implementation.createHTMLDocument('');
             doc.open();
             doc.write(data);
-            control.content.update(parser.content.call(this, doc));
+            control.article.update.call(this, doc);
             doc.close();
         });
     };
@@ -41,7 +41,7 @@ require([
 
         // control init
         control.list.init();
-        control.content.init();
+        control.article.init();
 
         var list = parser.list(document);
         for (var i in list) {
