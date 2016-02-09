@@ -6,10 +6,8 @@ define(function () {
     function comment(xml) {
         var rst = new Array;
 
-        var lists = xml.getElementById('comment_list');
-        if (lists) lists
-            = lists.getElementsByClassName('reply_line');
-        else return rst;
+        var lists = xml.getElementsByClassName('reply_line');
+        if(!lists.length) return rst;
 
         for (var i = 0; i < lists.length; ++i) {
             var itemBody = lists[i].children;

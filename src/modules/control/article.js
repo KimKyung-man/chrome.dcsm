@@ -3,15 +3,20 @@
 */
 define([
     './content',
+    './comment',
     'parser/_all'
-],function (content, parser) {
+],function (content, comment, parser) {
     var article = {
         init: function () {
             content.init();
+            comment.init();
         },
         update: function (xml) {
-            var data = parser.content(xml);
-            content.update(data);
+            var listData = parser.list.call(this, xml);
+            var cttData = parser.content.call(this, xml);
+            
+            content.update.call(this, cttData);
+            comment.refresh.call(this);
         },
         name: 'article'
     }

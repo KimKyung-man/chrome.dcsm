@@ -26,7 +26,7 @@ define([
                 list.items.unshift(item);
                 elem.insertBefore(item.elem, list.items[1].elem);
             } else {
-                onsole.error('Aready Exists');
+                console.error('Aready Exists');
                 return false;
             }
             return true;

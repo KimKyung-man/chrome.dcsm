@@ -1,5 +1,6 @@
 define([
-    './ajax'
+    './ajax',
+    './getCookie'
 ], function () {
     var rst = new Object;
     for (var i in arguments)

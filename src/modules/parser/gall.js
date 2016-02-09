@@ -7,7 +7,7 @@ define([
     'dcStatic/gallImg'
 ],function (qs, gimg) {
     function gall(xml) {
-        url = xml.location.href;
+        var url = this.url;
 
         var rst = new Object;
         rst['id'] =  qs('id', url);
