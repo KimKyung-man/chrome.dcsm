@@ -57,8 +57,35 @@ define([
                 doc.write(data);
                 var parsed = parser.list(doc);
                 doc.close();
-                for (var i in parsed)
+
+                for (var i in parsed) {
+                    if (typeof (parsed[i].num) !== 'number')
+                        continue; // notice
                     list.addItem(parsed[i]);
+                }
+            })
+        },
+        refresh: function () {
+            var targetURL = 'http://gall.dcinside.com/board/view/?id='
+                + gallId + '&no=1&page=1';
+            util.ajax({
+                'type': 'GET',
+                'url': targetURL
+            }, function (data) {
+                var doc = document.implementation.createHTMLDocument('');
+                doc.open();
+                doc.write(data);
+                var parsed = parser.list(doc);
+                doc.close();
+                console.log(parsed);
+
+                for (var i in parsed) {
+                    // reverse
+                    var item = parsed[parsed.length - i - 1];
+                    if (typeof (item.num) !== 'number')
+                        break; // notice
+                    list.addItem(item);
+                }
             })
         }
     }
