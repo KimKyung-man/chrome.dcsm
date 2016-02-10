@@ -31,6 +31,7 @@ define(['jquery-2.2.0.min'], function ($) {
             'async': true,
             'url': head.url,
             'data': head.data ? head.data : undefined,
+            'headers': head.headers? head.headers : undefined,
             'success': cb,
             'err': cb
         });

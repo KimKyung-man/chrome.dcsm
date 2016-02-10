@@ -3,9 +3,9 @@
     parse article info using xml
 */
 define(function () {
-    
+
     var gallid = null;
-    
+
     function content(xml) {
         var rst = new Object;
 
@@ -14,7 +14,7 @@ define(function () {
 
         var head = body.children[0].children[0]
             .getElementsByTagName('dd');
-        
+
         rst['id'] = gallid || (gallid = xml.getElementById('id').value);
         rst['num'] = xml.getElementById('no').value;
         rst['title'] = head[0].textContent;
@@ -42,11 +42,18 @@ define(function () {
         = rst['btn_rcmmd_up'].textContent.trim();
         rst['cnt_rcmmd_down']
         = rst['btn_rcmmd_down'].textContent.trim();
-        
+
         rst['check_6'] = xml.getElementById('check_6').value;
         rst['check_7'] = xml.getElementById('check_7').value;
         rst['check_8'] = xml.getElementById('check_8').value;
-        
+
+        rst['best_id'] = (rst['id'] === 'best')
+            ? xml.getElementById('best_id').value : undefined;
+        rst['best_no'] = (rst['id'] === 'best')
+            ? xml.getElementById('best_no').value : undefined;
+        rst['best_fno'] = (rst['id'] !== 'best')
+            ? xml.getElementById('best_fno').value : undefined;
+
         return rst;
     }
 

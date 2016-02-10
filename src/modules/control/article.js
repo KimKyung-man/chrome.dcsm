@@ -11,6 +11,9 @@ define([
         init: function () {
             content.init();
             comment.init();
+            form_cmt_wr.init(function(datam, cttData){
+                comment.refresh(cttData);
+            });
         },
         update: function (xml) {
             var cttData = parser.content(xml);

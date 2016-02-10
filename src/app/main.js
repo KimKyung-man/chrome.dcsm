@@ -5,9 +5,8 @@ require.config({
 require([
     'control/_all',
     'parser/_all',
-    'util/_all',
-    'writer/_all'
-], function (control, parser, util, writer) {
+    'util/_all'
+], function (control, parser, util) {
 
     // hide origin dc interface
     document.getElementById('dgn_wrap').style.display = 'none'
@@ -47,6 +46,5 @@ require([
         control.list.init();
         control.article.init();
         control.btn_refresh.init();
-        control.form_comment_write.init();
     });
 });
