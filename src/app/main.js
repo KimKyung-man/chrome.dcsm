@@ -47,5 +47,6 @@ require([
         // control init
         control.list.init();
         control.article.init();
+        control.btn_refresh.init();
     });
 });

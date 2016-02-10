@@ -1,7 +1,8 @@
 define([
     './article',
+    './btn_refresh',
 	'./content',
-    './List',
+    './list',
     './ListItem'
 ], function () {
     var rst = new Object;
