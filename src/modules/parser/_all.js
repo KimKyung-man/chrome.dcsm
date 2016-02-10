@@ -3,6 +3,7 @@ define([
     './comment',
     './gall',
     './list',
+    './named2url',
     './queryString'
 ], function () {
     var rst = new Object;

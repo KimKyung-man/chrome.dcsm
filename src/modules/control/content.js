@@ -26,6 +26,7 @@ define(function () {
             if (data.content) {
                 elem.content.innerHTML
                 = data.content.innerHTML;
+                // TODO: make efficient
                 // fuckin text is not copied
                 // while (elem.content.firstChild)
                 //     elem.content.removeChild(elem.content.firstChild);

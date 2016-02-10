@@ -2,7 +2,10 @@
     parser/list.js
     parse list info using xml
 */
-define(['./queryString'],function (qs) {
+define([
+    './named2url',
+    './queryString',
+], function (n2url, qs) {
     function list(xml) {
         var rst = new Array;
 
@@ -35,14 +38,14 @@ define(['./queryString'],function (qs) {
                 = itemBody[index[prop]].textContent;
             }
 
-            if(!isNaN(rstItem['num'])){
-                if(rstItem['num'] === '' ){ // current
+            if (!isNaN(rstItem['num'])) {
+                if (rstItem['num'] === '') { // current
                     rstItem['num']
                     = parseInt(qs('no', this.url));
                     rstItem.isCurrent = true;
                 } else rstItem['num'] = parseInt(rstItem['num']);
-            } 
-            
+            }
+
             rstItem['link']
             = itemBody[index['title']]
                 .children[0]            // <a>
@@ -51,10 +54,9 @@ define(['./queryString'],function (qs) {
             // i think it could be more efficient way
             // or
             // TODO: make name table
-            rstItem['icon_src']
-            = window.getComputedStyle(
-                itemBody[index['title']].children[0]
-                ).backgroundImage.split('\"')[1];
+            rstItem['artcon']
+            = n2url(itemBody[index['title']]
+                .children[0].classList[0]);
 
             rstItem['user_id']
             = itemBody[index['author']]
@@ -81,6 +83,6 @@ define(['./queryString'],function (qs) {
 
         return rst;
     }
-    
+
     return list;
 });

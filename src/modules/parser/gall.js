@@ -3,21 +3,24 @@
     parse gall info using xml
 */
 define([
-    './queryString',
-    'dcStatic/gallImg'
+    './queryString'
 ],function (qs, gimg) {
-    function gall(xml) {
-        var url = this.url;
-
+    var parsed = null;
+    
+    function gall() {
+        if(parsed) return parsed
+        
+        var url = document.location.href;
+        
         var rst = new Object;
         rst['id'] =  qs('id', url);
         rst['page'] = qs('page', url);
-        rst['name'] = xml.getElementById('dgn_gallery_left')
+        rst['name'] = document.getElementById('dgn_gallery_left')
             .getElementsByClassName('gallery_title')[0]
             .getElementsByClassName('tit')[0]
             .textContent.trim();
-        rst['img'] = gimg(rst['id']);
         
+        parsed = rst;
         return rst;
     }
 

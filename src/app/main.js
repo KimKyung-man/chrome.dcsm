@@ -39,6 +39,10 @@ require([
         inject.id = 'dcsm';
         inject.innerHTML = data;
         document.body.appendChild(inject);
+        
+        // set gall name
+        document.getElementById('dcsm-gall-name').textContent
+        = parser.gall().name + '갤러리';
 
         // control init
         control.list.init();
