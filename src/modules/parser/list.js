@@ -22,7 +22,6 @@ define([
 
         var index = {
             'num': 0,
-            'title': 1,
             'author': 2,
             'date': 3,
             'viewed': 4,
@@ -46,16 +45,23 @@ define([
                 } else rstItem['num'] = parseInt(rstItem['num']);
             }
 
+            rstItem['title']
+            = itemBody[1].children[0]
+                .textContent.trim();
+
+            rstItem['cnt_comment']
+            = itemBody[1].children[1]
+            ? itemBody[1].children[1]
+                .textContent.trim()
+            : null;
+
             rstItem['link']
-            = itemBody[index['title']]
+            = itemBody[1]
                 .children[0]            // <a>
                 .getAttribute('href');  // article link
 
-            // i think it could be more efficient way
-            // or
-            // TODO: make name table
             rstItem['artcon']
-            = n2url(itemBody[index['title']]
+            = n2url(itemBody[1]
                 .children[0].classList[0]);
 
             rstItem['user_id']

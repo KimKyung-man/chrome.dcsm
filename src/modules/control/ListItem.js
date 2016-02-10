@@ -10,6 +10,7 @@ define(function () {
         return rst;
     }
 
+    // TODO: Show cnt_comment
     function ListItem(data) {
         var self = this;
         // elem create logic
@@ -24,6 +25,8 @@ define(function () {
                     <span data-dcsm='list-item-num'></span>
                     <span data-dcsm='list-item-author'></span>
                     <span data-dcsm='list-item-ip'></span>
+                    <span data-dcsm='list-item-viewd'></span>
+                    <span data-dcsm='list-item-rcmmd'></span>
                     <span data-dcsm='list-item-date'></span>
                 </small>
             </p>
@@ -36,6 +39,8 @@ define(function () {
         var _elem_num = elemCstr('span', undefined, 'list-item-num');
         var _elem_author = elemCstr('span', undefined, 'list-item-author');
         var _elem_ip = elemCstr('span', undefined, 'list-item-ip');
+        var _elem_viewed = elemCstr('span', undefined, 'list-item-viewed');
+        var _elem_rcmmd = elemCstr('span', undefined, 'list-item-rcmmd');
         var _elem_date = elemCstr('span', undefined, 'list-item-date');
 
         var _temp_elem_h4 = elemCstr('h4', 'list-group-item-heading');
@@ -48,6 +53,8 @@ define(function () {
         _temp_elem_small.appendChild(_elem_num);
         _temp_elem_small.appendChild(_elem_author);
         _temp_elem_small.appendChild(_elem_ip);
+        _temp_elem_small.appendChild(_elem_viewed);
+        _temp_elem_small.appendChild(_elem_rcmmd);
         _temp_elem_small.appendChild(_elem_date);
         _temp_elem_p.appendChild(_temp_elem_small);
         
@@ -67,6 +74,8 @@ define(function () {
         this.elem_num = _elem_num;
         this.elem_author = _elem_author;
         this.elem_ip = _elem_ip;
+        this.elem_viewed = _elem_viewed;
+        this.elem_rcmmd = _elem_rcmmd;
         this.elem_date = _elem_date;
         
         if(!data) return;
@@ -76,6 +85,8 @@ define(function () {
         this.setTitle(data.title);
         this.setArtcon(data.artcon);
         this.setAuthor(data.author);
+        this.setViewed(data.viewed);
+        this.setRcmmd(data.rcmmd);
         this.setDate(data.date);
     }
 
@@ -105,6 +116,18 @@ define(function () {
         if (!this.elem_artcon.children.length)
             this.elem_artcon.appendChild(document.createElement('img'))
         this.elem_artcon.children[0].src = strUrl;
+    }
+    
+    ListItem.prototype.setIp = function(str){
+        this.elem_ip.textContent = str;
+    }
+    
+    ListItem.prototype.setViewed = function(str){
+        this.elem_viewed.textContent = str;
+    }
+    
+    ListItem.prototype.setRcmmd = function(str){
+        this.elem_rcmmd.textContent = str;
     }
 
     ListItem.prototype.getTitle = function () {
