@@ -9,6 +9,10 @@ define([
 
     var elem;
     var gallId;
+    
+    // DC야 아푸지마!!
+    var cs_nextPage = false;
+    var cs_refresh = false;
 
     var list = {
         name: 'list',
@@ -46,6 +50,9 @@ define([
             return true;
         },
         nextPage: function () {
+            if(cs_nextPage) return;
+            cs_nextPage = true;
+            
             var targetURL = 'http://gall.dcinside.com/board/view/?id='
                 + gallId + '&no=1&page=' + (++list.currentPage);
             util.ajax({
@@ -63,9 +70,16 @@ define([
                         continue; // notice
                     list.addItem(parsed[i]);
                 }
+                
+                setTimeout(function() {
+                    cs_nextPage = false;
+                }, 3000);
             })
         },
         refresh: function () {
+            if(cs_refresh) return;
+            cs_refresh = true;
+            
             var targetURL = 'http://gall.dcinside.com/board/view/?id='
                 + gallId + '&no=1&page=1';
             util.ajax({
@@ -77,7 +91,6 @@ define([
                 doc.write(data);
                 var parsed = parser.list(doc);
                 doc.close();
-                console.log(parsed);
 
                 for (var i in parsed) {
                     // reverse
@@ -86,6 +99,10 @@ define([
                         break; // notice
                     list.addItem(item);
                 }
+                
+                setTimeout(function() {
+                    cs_refresh = false;
+                }, 3000);
             })
         }
     }
