@@ -15,9 +15,10 @@ define(function () {
         // elem create logic
         /*
         <tr>
-            <td><span data-dcsm="author">잠온다</span>
+            <td><span data-dcsm="author"></span>
                 <span data-dcsm="gallcon"></span></td>
-            <td data-dcsm="content"></td>
+            <td><span data-dcsm="content"></span>
+                <small data-dcsm="ip"></small></td>
             <td data-dcsm="date"></td>
         </tr>
         */
@@ -25,15 +26,20 @@ define(function () {
         var _elem = elemCstr('tr');
         var _elem_author = elemCstr('span', undefined, 'author');
         var _elem_gallcon = elemCstr('span', undefined, 'gallcon');
-        var _elem_content = elemCstr('td', undefined, 'content');
+        var _elem_content = elemCstr('span', undefined, 'content');
+        var _elem_ip = elemCstr('small', undefined, 'ip');
         var _elem_date = elemCstr('td', undefined, 'date');
 
-        var _temp_elem_td = document.createElement('td');
+        var _temp_elem_td1 = document.createElement('td');
+        var _temp_elem_td2 = document.createElement('td');
 
-        _temp_elem_td.appendChild(_elem_author);
-        _temp_elem_td.appendChild(_elem_gallcon);
-        _elem.appendChild(_temp_elem_td);
-        _elem.appendChild(_elem_content);
+        _temp_elem_td1.appendChild(_elem_author);
+        _temp_elem_td1.appendChild(_elem_gallcon);
+        _temp_elem_td2.appendChild(_elem_content);
+        _temp_elem_td2.appendChild(_elem_ip);
+        
+        _elem.appendChild(_temp_elem_td1);
+        _elem.appendChild(_temp_elem_td2);
         _elem.appendChild(_elem_date);
         // end of: elem create logic
         
@@ -43,6 +49,7 @@ define(function () {
         this.elem_author = _elem_author;
         this.elem_gallcon = _elem_gallcon;
         this.elem_content = _elem_content;
+        this.elem_ip = _elem_ip;
         this.elem_date = _elem_date;
         
         if (!data) return;
@@ -51,6 +58,7 @@ define(function () {
         this.setAuthor(data.author);
         this.setGallcon(data.gallcon);
         this.setContent(data.content);
+        this.setIp(data.ip);
         this.setDate(data.date);
     }
 
@@ -70,6 +78,10 @@ define(function () {
         this.elem_content.textContent = str;
     }
 
+    CommentItem.prototype.setIp = function (str) {
+        this.elem_ip.textContent = str;
+    }
+    
     CommentItem.prototype.setDate = function (str) {
         this.elem_date.textContent = str;
     }

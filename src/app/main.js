@@ -42,7 +42,7 @@ require([
         
         // set gall name
         document.getElementById('dcsm-gall-name').textContent
-        = parser.gall().name + '갤러리';
+        = parser.gall().name + ' 갤러리';
 
         // control init
         control.list.init();

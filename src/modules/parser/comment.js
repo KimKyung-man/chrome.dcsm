@@ -7,7 +7,7 @@ define(function () {
         var rst = new Array;
 
         var lists = xml.getElementsByClassName('reply_line');
-        if(!lists.length) return rst;
+        if (!lists.length) return rst;
 
         for (var i = 0; i < lists.length; ++i) {
             var itemBody = lists[i].children;
@@ -21,7 +21,7 @@ define(function () {
             = itemBody[2].textContent.trim();
             rstItem['gallcon']
             = itemBody[0].children[1]
-            ? itemBody[0].children[1].children[0].src : null;
+                ? itemBody[0].children[1].children[0].src : null;
 
             rstItem['content'] = (function () {
                 var dccon
@@ -31,9 +31,13 @@ define(function () {
                     return dccon[0].src;
                 } else {
                     rstItem['dccon'] = false;
-                    return itemBody[1].textContent.trim();
+                    return itemBody[1].childNodes[0]
+                        .textContent.trim();
                 }
             })();
+            
+            rstItem['ip'] = rstItem['user_id']
+            ? null : itemBody[1].children[0].textContent.trim();
 
             rst.push(rstItem);
         }
