@@ -17,9 +17,7 @@ define([
             csrf_token = util.getCookie('ci_c');
         },
         items: new Array(),
-        refresh: function () {
-            var self = this;
-            
+        refresh: function (data) {
             // init
             comment.items = new Array();
             elem.innerHTML = "";
@@ -28,8 +26,8 @@ define([
               'url': '/comment/view/',
               'data': {
                   'ci_t': csrf_token,
-                  'id': parser.queryString('id', self.url),
-                  'no': parser.queryString('no', self.url)
+                  'id': data.id || document.getElementById('id').value,
+                  'no': data.num
               }
             }, function(data){
                 var doc = document.implementation.createHTMLDocument('');

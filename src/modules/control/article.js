@@ -4,19 +4,20 @@
 define([
     './content',
     './comment',
+    './form_comment_write',
     'parser/_all'
-],function (content, comment, parser) {
+],function (content, comment, form_cmt_wr, parser) {
     var article = {
         init: function () {
             content.init();
             comment.init();
         },
         update: function (xml) {
-            var listData = parser.list.call(this, xml);
-            var cttData = parser.content.call(this, xml);
+            var cttData = parser.content(xml);
             
-            content.update.call(this, cttData);
-            comment.refresh.call(this);
+            content.update(cttData);
+            comment.refresh(cttData);
+            form_cmt_wr.update(cttData);
         },
         name: 'article'
     }

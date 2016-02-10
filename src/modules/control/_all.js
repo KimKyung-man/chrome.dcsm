@@ -2,6 +2,7 @@ define([
     './article',
     './btn_refresh',
 	'./content',
+    './form_comment_write',
     './list',
     './ListItem'
 ], function () {

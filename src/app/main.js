@@ -22,9 +22,8 @@ require([
             var doc = document.implementation.createHTMLDocument('');
             doc.open();
             doc.write(data);
-            control.article.update.call(this, doc);
+            control.article.update(doc);
             doc.close();
-            control.list.nextPage();
         });
     };
 
@@ -48,5 +47,6 @@ require([
         control.list.init();
         control.article.init();
         control.btn_refresh.init();
+        control.form_comment_write.init();
     });
 });

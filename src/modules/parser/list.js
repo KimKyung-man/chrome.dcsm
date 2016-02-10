@@ -3,9 +3,8 @@
     parse list info using xml
 */
 define([
-    './named2url',
-    './queryString',
-], function (n2url, qs) {
+    './named2url'
+], function (n2url) {
     function list(xml) {
         var rst = new Array;
 
@@ -40,7 +39,7 @@ define([
             if (!isNaN(rstItem['num'])) {
                 if (rstItem['num'] === '') { // current
                     rstItem['num']
-                    = parseInt(qs('no', this.url));
+                    = parseInt(xml.getElementById('no').value);
                     rstItem.isCurrent = true;
                 } else rstItem['num'] = parseInt(rstItem['num']);
             }

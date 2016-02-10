@@ -64,7 +64,7 @@
 
                 </div>
                 <div id="dcsm-comment">
-                    <!-- for test -->
+                    
                     <div id="dcsm-comment-list">
                         <h3>Comment <small data-dcsm="cnt_comment"></small></h3>
                         <table class="table">
@@ -85,7 +85,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- end of: for test -->
 
                     <form id="dcsm-comment-write">
                         <div class="row">
@@ -94,21 +93,21 @@
                                     <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Username">
+                                    <input name="username" type="text" class="form-control" placeholder="Username">
                                 </div>
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Password">
+                                    <input name="password" type="password" class="form-control" placeholder="Password">
                                 </div>
                             </div>
                             <div class="col-sm-7">
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea name="content" form="dcsm-comment-write" class="form-control" rows="3"></textarea>
                             </div>
                             <div class="col-sm-2">
-                                <button type="button" class="btn btn-default btn-block">DCcon</button>
-                                <button type="button" class="btn btn-default btn-block">Submit</button>
+                                <input name="dccon" type="button" class="btn btn-default btn-block" value="DCcon"></input>
+                                <input name="submit" type="submit" class="btn btn-default btn-block" value="Submit"></input>
                             </div>
                         </div>
                     </form>
