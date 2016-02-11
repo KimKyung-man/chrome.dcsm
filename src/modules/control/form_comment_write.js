@@ -62,6 +62,7 @@ define([
         util.ajax(sendData, function (data) {
             if (callback && typeof callback === 'function')
                 callback(data, form_data);
+            elem.elements.content.value = ''; // clear
         });
     }
 

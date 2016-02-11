@@ -50,9 +50,9 @@ define([
 
             rstItem['cnt_comment']
             = itemBody[1].children[1]
-            ? itemBody[1].children[1]
-                .textContent.trim()
-            : null;
+                ? itemBody[1].children[1]
+                    .textContent.trim().slice(1, -1)
+                : 0;
 
             rstItem['link']
             = itemBody[1]
@@ -62,10 +62,10 @@ define([
             rstItem['artcon']
             = n2url(itemBody[1]
                 .children[0].classList[0]);
-                
+
             rstItem['isNotice']
             = !(itemBody[1].children[0].classList[0]
-            !== 'icon_notice');
+                !== 'icon_notice');
 
             rstItem['user_id']
             = itemBody[index['author']]
@@ -78,14 +78,8 @@ define([
             rstItem['gallcon']
             = rstItem['user_id']
                 ? itemBody[index['author']]     // if has user_id
-                    .getElementsByTagName('img')[0]
+                    .getElementsByTagName('img')[0].src
                 : null;
-
-            rstItem['is_fixed']
-            = rstItem['user_id']
-                ? rstItem['gallcon']
-                    .src.search('g_fix') > 0    // if has g_fix icon
-                : false;
 
             rst.push(rstItem);
         }

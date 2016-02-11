@@ -41,79 +41,104 @@
         <!-- body -->
         <div class="row">
 
+            <!-- left -->
+            <div id="dcsm-left"  class="col-sm-8 col-xs-12 hidden-xs">
+                <!-- content -->
+                <div id="dcsm-article">
+                    <div id="dcsm-article-head">
+                        <h1 data-dcsm="title"></h1>
+                        <ol class="breadcrumb">
+                            <li>글쓴이 <span data-dcsm="author"></span></li>
+                            <li>조회 <span data-dcsm="viewed"></span></li>
+                            <li>댓글 <span data-dcsm="cnt_comment"></span></li>
+                            <li data-dcsm="date"></li>
+                            <li data-dcsm="ip"></li>
+                        </ol>
+                    </div>
+                    <div id="dcsm-article-content">
+
+                    </div>
+                    <div id="dcsm-comment">
+
+                        <div id="dcsm-comment-list">
+                            <h3>Comment <small data-dcsm="cnt_comment"></small></h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-2"></th>
+                                        <th class="col-xs-8"></th>
+                                        <th class="col-xs-2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span data-dcsm="author"></span>
+                                            <span data-dcsm="gallcon"></span></td>
+                                        <td data-dcsm="content"></td>
+                                        <td data-dcsm="date"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <form id="dcsm-comment-write">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                        </span>
+                                        <input name="username" type="text" class="form-control" placeholder="Username">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                        </span>
+                                        <input name="password" type="password" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <textarea name="content" form="dcsm-comment-write" class="form-control" rows="3"></textarea>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input name="dccon" type="button" class="btn btn-default btn-block" value="DCcon"></input>
+                                    <input name="submit" type="submit" class="btn btn-default btn-block" value="Submit"></input>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- end of: content -->
+
+                <!-- footer -->
+                <footer id="dcsm-footer">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <p>
+                                Designed and built by <a href="http://lesomnus.tistory.com">lesomnus</a></p>
+                            <p>
+                                Based on
+                                <a href="http://getbootstrap.com/">Bootstrap3.3.1</a> with
+                                <a href="http://jquery.com/">jQuery</a> |
+                                <a href="http://glyphicons.com/">Glyphicons</a>
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <p>test</p>
+                        </div>
+                    </div>
+                </footer>
+                <!-- end of: footer -->
+            </div>
+            <!-- end of: left -->
+
             <!-- list -->
             <div id="dcsm-list" class="col-sm-4 col-xs-12">
                 <div class="list-group">
 
                 </div>
             </div>
-
-            <!-- content -->
-            <div id="dcsm-article" class="col-sm-8 col-xs-12 hidden-xs">
-                <div id="dcsm-article-head">
-                    <h1 data-dcsm="title"></h1>
-                    <ol class="breadcrumb">
-                        <li>글쓴이 <span data-dcsm="author"></span></li>
-                        <li>조회 <span data-dcsm="viewed"></span></li>
-                        <li>댓글 <span data-dcsm="cnt_comment"></span></li>
-                        <li data-dcsm="date"></li>
-                        <li data-dcsm="ip"></li>
-                    </ol>
-                </div>
-                <div id="dcsm-article-content">
-
-                </div>
-                <div id="dcsm-comment">
-                    
-                    <div id="dcsm-comment-list">
-                        <h3>Comment <small data-dcsm="cnt_comment"></small></h3>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="col-xs-2"></th>
-                                    <th class="col-xs-8"></th>
-                                    <th class="col-xs-2"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><span data-dcsm="author"></span>
-                                        <span data-dcsm="gallcon"></span></td>
-                                    <td data-dcsm="content"></td>
-                                    <td data-dcsm="date"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <form id="dcsm-comment-write">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                    </span>
-                                    <input name="username" type="text" class="form-control" placeholder="Username">
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-                                    </span>
-                                    <input name="password" type="password" class="form-control" placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="col-sm-7">
-                                <textarea name="content" form="dcsm-comment-write" class="form-control" rows="3"></textarea>
-                            </div>
-                            <div class="col-sm-2">
-                                <input name="dccon" type="button" class="btn btn-default btn-block" value="DCcon"></input>
-                                <input name="submit" type="submit" class="btn btn-default btn-block" value="Submit"></input>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
+            <!-- end of: list -->
         </div>
     </div>
 </body>

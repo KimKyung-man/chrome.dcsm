@@ -10,14 +10,17 @@ require([
 
     // hide origin dc interface
     document.getElementById('dgn_wrap').style.display = 'none'
-
+    
     // define control event
+    var lastRequest = new Date;
     control.ListItem.prototype.onclick = function(){
+        lastRequest = new Date;
         var self = this;
         util.ajax({
             'type': 'GET',
             'url': self.data.link
         }, function(data){
+            if(lastRequest > (new Date)) return;
             var doc = document.implementation.createHTMLDocument('');
             doc.open();
             doc.write(data);

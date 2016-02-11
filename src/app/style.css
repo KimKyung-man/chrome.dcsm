@@ -7,22 +7,25 @@
 }
 
 #dcsm-list {
+    direction: rtl;
 	height: calc(100vh - 50px);
 	padding: 0;
 	border-right: 1px solid #ddd;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+#dcsm-list > * { direction: ltr }
 
-#dcsm-article{
+#dcsm-left {
 	height: calc(100vh - 50px);
 	overflow-x: hidden;
 	overflow-y: auto;
 }
-
-#dcsm-article-content{
-	min-height: 10vh;
-}
+/*
+    I would be better do this with script
+                                       navbar padding footer */
+#dcsm-article{ min-height: calc(100vh - 50px - 30px - 142px); }
+#dcsm-article-content{ min-height: 10vh; }
 
 #dcsm-comment-list table > thead > tr > th {
     padding: 0;
@@ -62,6 +65,18 @@
 	resize: none;
 }
 
+#dcsm-comment-list *[data-dcsm="ip"] {
+    color: #bbb;
+    float: right;
+}
+
+#dcsm-footer {
+    bottom: 0;
+    font-size: 0.9em;
+    background-color: #eee;
+    padding: 40px 15px;
+    margin: 15px -15px 0 -15px;
+}
 
 .list-group > .list-group-item {
 	border-right: 0;
@@ -82,6 +97,38 @@
 	overflow: hidden;
 	white-space: nowrap;
 }
+
+.list-group > .list-group-item > .list-group-item-text small > * { margin-right: 5px; }
+.list-group > .list-group-item > .list-group-item-text span:empty { display: none; }
+
+.list-group > .list-group-item *[data-dcsm="author"] {
+    padding: 2px;
+    background-color: #eee;
+}
+.list-group > .list-group-item *[data-dcsm="artcon"] { margin-right: 5px; }
+.list-group > .list-group-item *[data-dcsm="num"] { color: #9d9d9d; }
+.list-group > .list-group-item *[data-dcsm="gallcon"] { margin-left: -5px; }
+.list-group > .list-group-item *[data-dcsm="viewed"] { float: right }
+.list-group > .list-group-item *[data-dcsm="rcmmd"] { float: right }
+.list-group > .list-group-item *[data-dcsm="cnt_comment"] { float: right }
+.list-group > .list-group-item *[data-dcsm="date"] {
+    display: none;
+    float: right
+}
+
+.list-group > .list-group-item *[data-dcsm="viewed"]:after, 
+.list-group > .list-group-item *[data-dcsm="rcmmd"]:after, 
+.list-group > .list-group-item *[data-dcsm="cnt_comment"]:after {
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.5em;
+    position: 'relative';
+    top: 2px;
+    padding-left: 2px;
+    color: #bbb;
+}
+.list-group > .list-group-item *[data-dcsm="viewed"]:after      {content: "\e067"}
+.list-group > .list-group-item *[data-dcsm="rcmmd"]:after       {content: "\e125"}
+.list-group > .list-group-item *[data-dcsm="cnt_comment"]:after {content: "\e111"}
 
 .navbar-inverse .navbar-abtn:hover {
     color: #fff;
@@ -105,19 +152,13 @@
 .navbar-left { float: left; }
 .navbar-right { float: right; }
 
-/* Let's get this party started */
-::-webkit-scrollbar {
-    width: 2px;
-}
- 
-/* Track */
+/* scroll */
+::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background: transparent;
 }
- 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
