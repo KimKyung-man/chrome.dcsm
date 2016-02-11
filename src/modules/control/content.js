@@ -11,6 +11,7 @@ define(function () {
             elem.content = document.getElementById('dcsm-article-content');
             elem.title = _elem.querySelectorAll('[data-dcsm="title"]')[0];
             elem.author = _elem.querySelectorAll('[data-dcsm="author"]')[0];
+            elem.gallcon = _elem.querySelectorAll('[data-dcsm="gallcon"]')[0];
             elem.viewed = _elem.querySelectorAll('[data-dcsm="viewed"]')[0];
             elem.cnt_comment = _elem.querySelectorAll('[data-dcsm="cnt_comment"]')[0];
             elem.date = _elem.querySelectorAll('[data-dcsm="date"]')[0];
@@ -33,6 +34,11 @@ define(function () {
                 // for( var i in data.content)
                 //     elem.content.appendChild(data.content[i]);
             }
+            if (data.gallcon) {
+                if (!elem.gallcon.children.length)
+                    elem.gallcon.appendChild(document.createElement('img'))
+                elem.gallcon.children[0].src = data.gallcon;
+            } else elem.gallcon.innerHTML = "";
         },
         name: 'content'
     }

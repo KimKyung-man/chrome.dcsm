@@ -23,7 +23,6 @@ define([
 
         var targetURL = 'http://gall.dcinside.com/board/view/?id='
             + form_data.id + '&no=' + form_data.num;
-        history.pushState('', '', targetURL);
         
         var sendData = {
             'type': 'POST',

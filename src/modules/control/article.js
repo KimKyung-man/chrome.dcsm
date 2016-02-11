@@ -21,6 +21,8 @@ define([
             content.update(cttData);
             comment.refresh(cttData);
             form_cmt_wr.update(cttData);
+            
+            return cttData;
         },
         name: 'article'
     }

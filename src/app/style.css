@@ -35,8 +35,8 @@
 	vertical-align: middle;
 }
 
-#dcsm-comment-list table > tbody > tr > td:first-child {
-
+#dcsm-comment-list table > tbody > tr > td {
+    word-break: break-all;
 }
 
 #dcsm-comment-list table > tbody > tr > td:last-child {

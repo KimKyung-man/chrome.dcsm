@@ -13,19 +13,21 @@ require([
     
     // define control event
     var lastRequest = new Date;
-    control.ListItem.prototype.onclick = function(){
+    control.ListItem.prototype.onclick = function () {
         lastRequest = new Date;
         var self = this;
         util.ajax({
             'type': 'GET',
             'url': self.data.link
-        }, function(data){
-            if(lastRequest > (new Date)) return;
+        }, function (data) {
+            if (lastRequest > (new Date)) return;
+            history.pushState('', '', self.data.link);
             var doc = document.implementation.createHTMLDocument('');
             doc.open();
             doc.write(data);
-            control.article.update(doc);
+            var cttData = control.article.update(doc);
             doc.close();
+            self.update(cttData);
         });
     };
 

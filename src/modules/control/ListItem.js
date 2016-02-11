@@ -50,10 +50,10 @@ define(function () {
         var _temp_elem_h4 = elemCstr('h4', 'list-group-item-heading');
         var _temp_elem_p = elemCstr('p', 'list-group-item-text');
         var _temp_elem_small = document.createElement('small');
-        
+
         _temp_elem_h4.appendChild(_elem_artcon);
         _temp_elem_h4.appendChild(_elem_title);
-        
+
         _temp_elem_small.appendChild(_elem_num);
         _temp_elem_small.appendChild(_elem_author);
         _temp_elem_small.appendChild(_elem_gallcon);
@@ -63,13 +63,13 @@ define(function () {
         _temp_elem_small.appendChild(_elem_viewed);
         _temp_elem_small.appendChild(_elem_date);
         _temp_elem_p.appendChild(_temp_elem_small);
-        
+
         _elem.appendChild(_temp_elem_h4);
         _elem.appendChild(_temp_elem_p);
         // end of: elem create logic
         
         // bind event
-        _elem.onclick = function(){
+        _elem.onclick = function () {
             ListItem.prototype.onclick.call(self);
         };
         // end of: bind event
@@ -85,10 +85,10 @@ define(function () {
         this.elem_rcmmd = _elem_rcmmd;
         this.elem_cnt_comment = _elem_cnt_comment;
         this.elem_date = _elem_date;
-        
-        if(!data) return;
+
+        if (!data) return;
         else this.data = data;
-        
+
         this.setNum(data.num);
         this.setTitle(data.title);
         this.setArtcon(data.artcon);
@@ -103,17 +103,18 @@ define(function () {
     ListItem.prototype.setNum = function (str) {
         this.elem_num.textContent = str;
     }
-    
+
     ListItem.prototype.setTitle = function (str) {
+        this.elem.title = str;
         this.elem_title.textContent = str;
     }
 
     ListItem.prototype.setAuthor = function (str) {
         this.elem_author.textContent = str;
     }
-    
-    ListItem.prototype.setGallcon = function (strUrl){
-        if(!strUrl)
+
+    ListItem.prototype.setGallcon = function (strUrl) {
+        if (!strUrl)
             return this.elem_gallcon.innerHTML = "";
         if (!this.elem_gallcon.children.length)
             this.elem_gallcon.appendChild(document.createElement('img'))
@@ -127,28 +128,28 @@ define(function () {
     ListItem.prototype.setDate = function (str) {
         this.elem_date.textContent = str;
     }
-    
-    ListItem.prototype.setArtcon = function (strUrl){
-        if(!strUrl)
+
+    ListItem.prototype.setArtcon = function (strUrl) {
+        if (!strUrl)
             return this.elem_artcon.innerHTML = "";
         if (!this.elem_artcon.children.length)
             this.elem_artcon.appendChild(document.createElement('img'))
         this.elem_artcon.children[0].src = strUrl;
     }
-    
-    ListItem.prototype.setIp = function(str){
+
+    ListItem.prototype.setIp = function (str) {
         this.elem_ip.textContent = str;
     }
-    
-    ListItem.prototype.setViewed = function(str){
+
+    ListItem.prototype.setViewed = function (str) {
         this.elem_viewed.textContent = str;
     }
-    
-    ListItem.prototype.setRcmmd = function(str){
+
+    ListItem.prototype.setRcmmd = function (str) {
         this.elem_rcmmd.textContent = str;
     }
-    
-    ListItem.prototype.setCntComment = function(str){
+
+    ListItem.prototype.setCntComment = function (str) {
         this.elem_cnt_comment.textContent = str;
     }
 
@@ -170,11 +171,18 @@ define(function () {
     
     // event
     ListItem.prototype.onclick = function () {
-        
+
     }
-    
-    ListItem.prototype.click = function(){
+
+    ListItem.prototype.click = function () {
         this.elem.clcik();
+    }
+
+    ListItem.prototype.update = function (data) {
+        this.setViewed(data.viewed);
+        this.setCntComment(data.cnt_comment);
+        if (data.ip) this.setIp(data.ip);
+        if (data.rcmmd) this.setRcmmd(data.rcmmd);
     }
 
     return ListItem;
