@@ -60,7 +60,6 @@ define([
         }
         
         util.ajax(sendData, function (data) {
-            console.log(callback);
             if (callback && typeof callback === 'function')
                 callback(data, form_data);
         });

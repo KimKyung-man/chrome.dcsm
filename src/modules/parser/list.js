@@ -62,6 +62,10 @@ define([
             rstItem['artcon']
             = n2url(itemBody[1]
                 .children[0].classList[0]);
+                
+            rstItem['isNotice']
+            = !(itemBody[1].children[0].classList[0]
+            !== 'icon_notice');
 
             rstItem['user_id']
             = itemBody[index['author']]

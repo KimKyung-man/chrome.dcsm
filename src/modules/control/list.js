@@ -31,9 +31,8 @@ define([
             // initial list
             var parsed = parser.list(document);
             for (var i in parsed) {
-                if (typeof (parsed[i].num) !== 'number')
-                    continue; // notice
-                list.addItem(parsed[i]);
+                if (!parsed[i].isNotice)
+                    list.addItem(parsed[i]);
             }
         },
         items: new Array,
@@ -50,9 +49,9 @@ define([
             return true;
         },
         nextPage: function () {
-            if(cs_nextPage) return;
+            if (cs_nextPage) return;
             cs_nextPage = true;
-            
+
             var targetURL = 'http://gall.dcinside.com/board/view/?id='
                 + gallId + '&no=1&page=' + (++list.currentPage);
             util.ajax({
@@ -64,22 +63,21 @@ define([
                 doc.write(data);
                 var parsed = parser.list(doc);
                 doc.close();
-
-                for (var i in parsed) {
-                    if (typeof (parsed[i].num) !== 'number')
-                        continue; // notice
-                    list.addItem(parsed[i]);
-                }
                 
-                setTimeout(function() {
+                for (var i in parsed) {
+                    if (!parsed[i].isNotice)
+                        list.addItem(parsed[i]);
+                }
+
+                setTimeout(function () {
                     cs_nextPage = false;
                 }, 3000);
             })
         },
         refresh: function () {
-            if(cs_refresh) return;
+            if (cs_refresh) return;
             cs_refresh = true;
-            
+
             var targetURL = 'http://gall.dcinside.com/board/view/?id='
                 + gallId + '&no=1&page=1';
             util.ajax({
@@ -95,12 +93,12 @@ define([
                 for (var i in parsed) {
                     // reverse
                     var item = parsed[parsed.length - i - 1];
-                    if (typeof (item.num) !== 'number')
+                    if (item.isNotice)
                         break; // notice
                     list.addItem(item);
                 }
-                
-                setTimeout(function() {
+
+                setTimeout(function () {
                     cs_refresh = false;
                 }, 3000);
             })
