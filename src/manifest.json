@@ -28,6 +28,7 @@
         "modules/*",
         "app/index.html",
         "app/interface.js",
-        "lib/bootstrap.min.js" // jQuery-ui conflict problem. Load last.
+        "lib/bootstrap.min.js", // jQuery-ui conflict problem. Load last.
+        "img/*"
     ]
 }

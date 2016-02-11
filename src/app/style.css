@@ -24,7 +24,20 @@
 /*
     I would be better do this with script
                                        navbar padding footer */
-#dcsm-article{ min-height: calc(100vh - 50px - 30px - 142px); }
+#dcsm-article {
+    position: relative;
+    min-height: calc(100vh - 50px - 30px - 142px);
+}
+#dcsm-article-mask {
+    position: absolute;
+    padding: 10%;
+    top: -20px; right: -15px; bottom: -15px; left: -15px;
+    background-color: #fafafa;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/img/bg.png');
+    z-index: 9999;    
+}
+#dcsm-article-mask .jumbotron { background-color: rgba(200,200,200,0.333); }
+
 #dcsm-article-content{ min-height: 10vh; }
 
 #dcsm-comment-list table > thead > tr > th {
@@ -130,6 +143,7 @@
 .list-group > .list-group-item *[data-dcsm="rcmmd"]:after       {content: "\e125"}
 .list-group > .list-group-item *[data-dcsm="cnt_comment"]:after {content: "\e111"}
 
+.navbar { border: 0 !important; } /* wtf */
 .navbar-inverse .navbar-abtn:hover {
     color: #fff;
     background-color: transparent;

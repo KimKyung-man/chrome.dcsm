@@ -63,5 +63,6 @@ require([
         control.list.init();
         control.article.init();
         control.btn_refresh.init();
+        control.btn_gall.init();
     });
 });

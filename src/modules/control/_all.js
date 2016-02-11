@@ -1,5 +1,6 @@
 define([
     './article',
+    './btn_gall',
     './btn_refresh',
 	'./content',
     './form_comment_write',

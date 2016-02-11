@@ -30,7 +30,7 @@ define([
     var btn_refresh = {
         name: 'btn_refresh',
         init: function () {
-            elem = document.getElementById('btn_refresh');
+            elem = document.getElementById('dcsm-btn-refresh');
             elem.addEventListener('click', btn_onclick, false);
             autoRefresh.set();
         }

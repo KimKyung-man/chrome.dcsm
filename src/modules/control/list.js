@@ -63,7 +63,7 @@ define([
                 doc.write(data);
                 var parsed = parser.list(doc);
                 doc.close();
-                
+
                 for (var i in parsed) {
                     if (!parsed[i].isNotice)
                         list.addItem(parsed[i]);
@@ -102,6 +102,16 @@ define([
                     cs_refresh = false;
                 }, 3000);
             })
+        },
+        reboot: function () {
+            list.currentPage = 1;
+            list.items = new Array();
+            elem.style.display = 'none';
+            while (elem.firstChild) // clear node
+                elem.removeChild(elem.firstChild);
+            elem.style.display = 'block';
+            cs_refresh = false;
+            list.refresh();
         }
     }
     return list;
