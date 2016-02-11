@@ -29,14 +29,10 @@ define(function () {
             if (data.date) elem.date.textContent = data.date;
             if (data.ip) elem.ip.textContent = data.ip;
             if (data.content) {
-                elem.content.innerHTML
-                = data.content.innerHTML;
-                // TODO: make efficient
-                // fuckin text is not copied
-                // while (elem.content.firstChild)
-                //     elem.content.removeChild(elem.content.firstChild);
-                // for( var i in data.content)
-                //     elem.content.appendChild(data.content[i]);
+                while (elem.content.firstChild)
+                    elem.content.removeChild(elem.content.firstChild);
+                while(data.content.firstChild)
+                    elem.content.appendChild(data.content.firstChild);
             }
             if (data.gallcon) {
                 if (!elem.gallcon.children.length)
