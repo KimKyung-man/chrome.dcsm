@@ -25,6 +25,8 @@
     ],
     "web_accessible_resources": [
         "modules/*",
-        "app/index.html"
+        "app/index.html",
+        "app/interface.js",
+        "lib/bootstrap.min.js" // jQuery-ui conflict problem. Load last.
     ]
 }
