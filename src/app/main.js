@@ -64,5 +64,9 @@ require([
         control.article.init();
         control.btn_refresh.init();
         control.btn_gall.init();
+        
+        // if board/view,
+        if(document.getElementById('no'))
+            control.article.update(document);
     });
 });

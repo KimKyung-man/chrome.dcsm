@@ -10,7 +10,7 @@ define([
     
     function btn_onclick(e) {
         list.reboot();
-        content.update({'content': document.createTextNode()});
+        content.update({'content': document.createTextNode('')});
         document.getElementById('dcsm-article-mask').style.display = 'block';
     }
 
