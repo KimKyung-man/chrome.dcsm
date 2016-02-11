@@ -21,7 +21,8 @@
         }
     ],
     "permissions": [
-        "http://gall.dcinside.com/board/*"
+        "http://gall.dcinside.com/board/lists/*",
+        "http://gall.dcinside.com/board/view/*"
     ],
     "web_accessible_resources": [
         "modules/*",
