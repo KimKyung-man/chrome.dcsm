@@ -13,15 +13,16 @@ require([
     document.getElementById('dgn_wrap').style.display = 'none'
     
     // define control event
-    var lastRequest = new Date;
+    var lastRequest = null;
     control.ListItem.prototype.onclick = function () {
         lastRequest = new Date;
+        var sendTime = lastRequest;
         var self = this;
         util.ajax({
             'type': 'GET',
             'url': self.data.link
         }, function (data) {
-            if (lastRequest > (new Date)) return;
+            if (lastRequest > sendTime) return;
             history.pushState('', '', self.data.link);
             var doc = document.implementation.createHTMLDocument('');
             doc.open();

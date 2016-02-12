@@ -55,7 +55,8 @@ define(function () {
                         rst['content'].firstChild);
             }
         })();
-
+        
+        rst['recommend'] = xml.getElementById('recommend').value;
         rst['btn_rcmmd_up'] = xml
             .getElementById('recommend_vote_up');
         rst['btn_rcmmd_down'] = xml
@@ -67,6 +68,7 @@ define(function () {
         rst['cnt_rcmmd_down']
         = rst['btn_rcmmd_down'].textContent.trim();
 
+        rst['check_3'] = xml.getElementById('check_3').value;
         rst['check_6'] = xml.getElementById('check_6').value;
         rst['check_7'] = xml.getElementById('check_7').value;
         rst['check_8'] = xml.getElementById('check_8').value;

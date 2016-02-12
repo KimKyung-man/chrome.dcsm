@@ -1,12 +1,16 @@
 /*
     button/rcmmd_down.js
 */
-define(function () {
+define([
+    'control/content'
+], function (content) {
 
     var elem = null;
 
     function btn_onclick(e) {
-
+        content.rcmmd_down(function(data){
+            console.log(data);
+        })
     }
 
     var rcmmd_down = {
