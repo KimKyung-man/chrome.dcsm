@@ -7,6 +7,7 @@ define([
 
     var elem = new Object;
     var selectedData = null;
+    var obs_update_end = new util.Observer;
 
     var content = {
         name: 'content',
@@ -55,6 +56,7 @@ define([
             } else if (elem.mbcon.children.length) {
                 elem.mbcon.removeChild(elem.mbcon.firstChild);
             }
+            obs_update_end.fire();
         },
         rcmmd_up: function (cb) {
             // set coockie
@@ -100,6 +102,9 @@ define([
                 'url': '/forms/recommend_vote_down',
                 'data': sendForm,
             }, cb);
+        },
+        sub_update_end: function(fn){
+            obs_update_end.subscribe(fn);
         }
     }
 
