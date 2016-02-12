@@ -26,9 +26,8 @@ require([
             var doc = document.implementation.createHTMLDocument('');
             doc.open();
             doc.write(data);
-            var cttData = control.article.update(doc);
+            control.article.update(doc, self);
             doc.close();
-            self.update(cttData);
         });
     };
 
@@ -57,7 +56,7 @@ require([
         injectJS('lib/bootstrap.min.js'); 
         
         // set gall name
-            document.getElementById('dcsm-gall-name').textContent
+        document.getElementById('dcsm-gall-name').textContent
         = parser.gall().name + ' 갤러리';
 
         // control init
@@ -66,7 +65,7 @@ require([
         button.init();
         
         // if board/view,
-        if(document.getElementById('no'))
+        if (document.getElementById('no'))
             control.article.update(document);
     });
 });

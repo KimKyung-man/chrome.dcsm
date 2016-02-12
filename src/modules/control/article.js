@@ -18,17 +18,16 @@ define([
             });
             mask = document.getElementById('dcsm-article-mask');
         },
-        update: function (xml) {
+        update: function (xml, srcItem) {
             var cttData = parser.content(xml);
             
             content.update(cttData);
             comment.refresh(cttData);
             form_cmt_wr.update(cttData);
+            srcItem.update(cttData);
             
             if(mask.style.display !== 'none')
                 mask.style.display = 'none';
-                
-            return cttData;
         },
         name: 'article'
     }

@@ -22,7 +22,6 @@ define([
         var index = {
             'num': 0,
             'author': 2,
-            'date': 3,
             'viewed': 4,
             'rcmmd': 5
         }
@@ -80,6 +79,9 @@ define([
                 ? itemBody[index['author']]     // if has user_id
                     .getElementsByTagName('img')[0].src
                 : null;
+                
+            rstItem['date']
+            = itemBody[3].title.trim();
 
             rst.push(rstItem);
         }
