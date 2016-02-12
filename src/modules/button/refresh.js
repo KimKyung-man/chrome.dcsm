@@ -9,7 +9,8 @@ define([
     var autoRefresh = {
         'timer': null,
         'action': function () {
-            elem.click();
+            if (!list.get_mod_rcmmd)
+                elem.click();
         },
         'trigger': function (e) {
             if (e.isTrusted && autoRefresh.timer !== null) {

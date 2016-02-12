@@ -96,6 +96,11 @@
     margin: 15px -15px 0 -15px;
 }
 
+#dcsm-btn-rcmmd-list[data-dcsm="deactive"] { color: #333}
+#dcsm-btn-rcmmd-list[data-dcsm="deactive"]:hover { color: #666 }
+#dcsm-btn-rcmmd-list[data-dcsm="active"] { color: #ee0}
+#dcsm-btn-rcmmd-list[data-dcsm="active"]:hover { color: #aa0 }
+
 .list-group > .list-group-item {
 	border-right: 0;
 	border-left: 0;
@@ -164,9 +169,8 @@
     font-size: 18px;
     line-height: 20px;
 }
-.navbar-header .glyphicon {
-    top: 0;
-}
+.navbar-header .glyphicon { top: 0; }
+.navbar-header .navbar-brand { font-weight: bold; }
 
 .navbar-left { float: left; }
 .navbar-right { float: right; }

@@ -9,6 +9,7 @@ define([
 
     var elem;
     var gallId;
+    var mod_rcmmd = false;  // 개념글 보니?
     
     // DC야 아푸지마!!
     var cs_nextPage = false;
@@ -20,6 +21,7 @@ define([
         init: function () {
             elem = document.getElementById('dcsm-list').children[0];
             gallId = parser.queryString('id', document.baseURI);
+            mod_rcmmd = parser.queryString('exception_mode') === 'recommend';
             
             // bind end of scroll
             var elemP = elem.parentElement;
@@ -54,6 +56,8 @@ define([
 
             var targetURL = 'http://gall.dcinside.com/board/view/?id='
                 + gallId + '&no=1&page=' + (++list.currentPage);
+            if (mod_rcmmd) targetURL += '&exception_mode=recommend';
+
             util.ajax({
                 'type': 'GET',
                 'url': targetURL
@@ -80,6 +84,8 @@ define([
 
             var targetURL = 'http://gall.dcinside.com/board/view/?id='
                 + gallId + '&no=1&page=1';
+            if (mod_rcmmd) targetURL += '&exception_mode=recommend';
+            
             util.ajax({
                 'type': 'GET',
                 'url': targetURL
@@ -112,7 +118,13 @@ define([
             elem.style.display = 'block';
             cs_refresh = false;
             list.refresh();
-        }
+        },
+        set_mod_rcmmd: function (val) {
+            if (!arguments.length) mod_rcmmd = !mod_rcmmd; // toglle
+            else if (val) mod_rcmmd = true;
+            else mod_rcmmd = false;
+        },
+        get_mod_rcmmd: function () { return mod_rcmmd; }
     }
     return list;
 });

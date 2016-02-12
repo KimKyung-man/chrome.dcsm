@@ -11,6 +11,7 @@ define([
     var csrf_token;
 
     var comment = {
+        name: 'comment',
         init: function () {
             elem = document.getElementById('dcsm-comment-list')
                 .getElementsByTagName('tbody')[0];
@@ -20,21 +21,21 @@ define([
         refresh: function (data) {
             // init
             comment.items = new Array();
-            elem.innerHTML = "";
+            comment.clear();
             util.ajax({
-              'type': 'POST',
-              'url': '/comment/view/',
-              'data': {
-                  'ci_t': csrf_token,
-                  'id': data.id || document.getElementById('id').value,
-                  'no': data.num
-              }
-            }, function(data){
+                'type': 'POST',
+                'url': '/comment/view/',
+                'data': {
+                    'ci_t': csrf_token,
+                    'id': data.id || document.getElementById('id').value,
+                    'no': data.num
+                }
+            }, function (data) {
                 var doc = document.implementation.createHTMLDocument('');
                 doc.open();
                 doc.write(data);
                 var parsed = parser.comment(doc);
-                for(var i in parsed){
+                for (var i in parsed) {
                     var item = new CommentItem(parsed[i]);
                     comment.items.push(item);
                     elem.appendChild(item.elem);
@@ -42,7 +43,10 @@ define([
                 doc.close();
             });
         },
-        name: 'comment'
+        clear: function () {
+            while (elem.firstChild)
+                elem.removeChild(elem.firstChild);
+        }
     }
 
     return comment;

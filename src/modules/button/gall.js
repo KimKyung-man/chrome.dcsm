@@ -3,14 +3,16 @@
 */
 define([
     'control/list',
-    'control/content'
-], function (list, content) {
+    'control/content',
+    'control/comment'
+], function (list, content, comment) {
 
     var elem = null;
     
     function btn_onclick(e) {
         list.reboot();
         content.update({'content': document.createTextNode('')});
+        comment.clear();
         document.getElementById('dcsm-article-mask').style.display = 'block';
     }
 

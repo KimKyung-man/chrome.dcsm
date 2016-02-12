@@ -2,6 +2,7 @@ define([
     './gall',
     './go_article_top',
     './rcmmd_down',
+    './rcmmd_list',
     './rcmmd_up',
     './refresh'
 ], function () {

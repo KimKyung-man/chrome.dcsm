@@ -99,7 +99,7 @@ define(function () {
         this.setAuthor(data.author);
         this.setGallcon(data.gallcon);
         this.setViewed(data.viewed);
-        this.setRcmmd(data.rcmmd);
+        this.setRcmmd(data.cnt_rcmmd_up);
         this.setDate(data.date);
         this.setCntComment(data.cnt_comment);
     }
@@ -194,7 +194,7 @@ define(function () {
         this.setViewed(data.viewed);
         this.setCntComment(data.cnt_comment);
         if (data.ip) this.setIp(data.ip);
-        if (data.rcmmd) this.setRcmmd(data.rcmmd);
+        if (data.cnt_rcmmd_up) this.setRcmmd(data.cnt_rcmmd_up);
         if (data.mbcon) this.setMbcon(data.mbcon);
     }
 

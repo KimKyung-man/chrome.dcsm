@@ -23,7 +23,7 @@ define([
             'num': 0,
             'author': 2,
             'viewed': 4,
-            'rcmmd': 5
+            'cnt_rcmmd_up': 5
         }
 
         for (var i = 0; i < lists.length; ++i) {
