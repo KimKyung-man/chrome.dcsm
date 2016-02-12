@@ -18,6 +18,8 @@ define(function () {
         rst['id'] = gallid || (gallid = xml.getElementById('id').value);
         rst['num'] = xml.getElementById('no').value;
         rst['title'] = head[0].textContent;
+        rst['mbcon'] = head[0].children[0]  // span?
+            ? head[0].children[0].children[0].src : null;
         rst['user_id'] = head[1].children[0]
             .getAttribute('user_id');
         rst['author'] = rst['user_name']
@@ -30,10 +32,30 @@ define(function () {
             .children[0].children[0].textContent.trim();
         rst['ip'] = body.children[0].children[1].children[0]
             .children[1].textContent.trim();
-        rst['content'] = body.children[19] // div.re_gall_box_1
-            .children[0].children[0].lastElementChild // table
-            .children[0].children[0].children[0] // tbody tr td
+        rst['content'] = body.children[19]              // div.re_gall_box_1
+            .children[0].children[0].lastElementChild   // table
+            .children[0].children[0].children[0]        // tbody tr td
             .cloneNode(true);
+        // get mobile-writed image
+        // f-u DC
+        (function () {
+            var target = body.children[19].children[0]
+                .children[0].children;
+                
+            rst['content'].insertBefore(
+                document.createElement('br'),
+                rst['content'].firstChild);
+                
+            for (var i in target) {
+                // reverse
+                var item = target[target.length - 1 - i];
+                if (item && item.tagName === 'A')
+                    rst['content'].insertBefore(
+                        item,
+                        rst['content'].firstChild);
+            }
+        })();
+
         rst['btn_rcmmd_up'] = xml
             .getElementById('recommend_vote_up');
         rst['btn_rcmmd_down'] = xml

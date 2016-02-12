@@ -25,6 +25,7 @@ define(function () {
                     <span data-dcsm='num'></span>
                     <span data-dcsm='author'></span>
                     <span data-dcsm='gallcon'></span>
+                    <span data-dcsm='mbcon'></span>
                     <span data-dcsm='ip'></span>
                     <span data-dcsm='rcmmd'></span>
                     <span data-dcsm='cnt_comment'></span>
@@ -39,6 +40,7 @@ define(function () {
         var _elem_title = elemCstr('span', undefined, 'title');
         var _elem_artcon = elemCstr('span', undefined, 'artcon');
         var _elem_gallcon = elemCstr('span', undefined, 'gallcon');
+        var _elem_mbcon = elemCstr('span', undefined, 'mbcon');
         var _elem_num = elemCstr('span', undefined, 'num');
         var _elem_author = elemCstr('span', undefined, 'author');
         var _elem_ip = elemCstr('span', undefined, 'ip');
@@ -57,6 +59,7 @@ define(function () {
         _temp_elem_small.appendChild(_elem_num);
         _temp_elem_small.appendChild(_elem_author);
         _temp_elem_small.appendChild(_elem_gallcon);
+        _temp_elem_small.appendChild(_elem_mbcon);
         _temp_elem_small.appendChild(_elem_ip);
         _temp_elem_small.appendChild(_elem_rcmmd);
         _temp_elem_small.appendChild(_elem_cnt_comment);
@@ -80,6 +83,7 @@ define(function () {
         this.elem_num = _elem_num;
         this.elem_author = _elem_author;
         this.elem_gallcon = _elem_gallcon;
+        this.elem_mbcon = _elem_mbcon;
         this.elem_ip = _elem_ip;
         this.elem_viewed = _elem_viewed;
         this.elem_rcmmd = _elem_rcmmd;
@@ -119,6 +123,14 @@ define(function () {
         if (!this.elem_gallcon.children.length)
             this.elem_gallcon.appendChild(document.createElement('img'))
         this.elem_gallcon.children[0].src = strUrl;
+    }
+
+    ListItem.prototype.setMbcon = function (strUrl) {
+        if (!strUrl)
+            return this.elem_mbcon.innerHTML = "";
+        if (!this.elem_mbcon.children.length)
+            this.elem_mbcon.appendChild(document.createElement('img'))
+        this.elem_mbcon.children[0].src = strUrl;
     }
 
     ListItem.prototype.setIp = function (str) {
@@ -183,6 +195,7 @@ define(function () {
         this.setCntComment(data.cnt_comment);
         if (data.ip) this.setIp(data.ip);
         if (data.rcmmd) this.setRcmmd(data.rcmmd);
+        if (data.mbcon) this.setMbcon(data.mbcon);
     }
 
     return ListItem;

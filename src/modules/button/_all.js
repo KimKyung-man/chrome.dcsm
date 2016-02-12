@@ -1,5 +1,8 @@
 define([
     './gall',
+    './go_article_top',
+    './rcmmd_down',
+    './rcmmd_up',
     './refresh'
 ], function () {
     var rst = {

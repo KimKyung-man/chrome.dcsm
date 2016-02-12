@@ -16,7 +16,7 @@
 }
 #dcsm-list > * { direction: ltr }
 
-#dcsm-left {
+#dcsm-content {
 	height: calc(100vh - 50px);
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -36,6 +36,9 @@
     background-image: url('chrome-extension://__MSG_@@extension_id__/img/bg.png');
     z-index: 9999;    
 }
+#dcsm-article-head *[data-dcsm]:empty { display: none; }
+#dcsm-article-head *[data-dcsm="mbcon"] > * { margin-top: -2px; }
+
 #dcsm-article-mask .jumbotron { background-color: rgba(200,200,200,0.333); }
 
 #dcsm-article-content { min-height: 10vh; }

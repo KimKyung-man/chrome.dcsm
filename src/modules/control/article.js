@@ -24,7 +24,7 @@ define([
             content.update(cttData);
             comment.refresh(cttData);
             form_cmt_wr.update(cttData);
-            srcItem.update(cttData);
+            if(srcItem) srcItem.update(cttData);
             
             if(mask.style.display !== 'none')
                 mask.style.display = 'none';
