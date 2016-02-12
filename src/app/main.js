@@ -3,10 +3,11 @@ require.config({
 });
 
 require([
+    'button/_all',
     'control/_all',
     'parser/_all',
     'util/_all'
-], function (control, parser, util) {
+], function (button, control, parser, util) {
 
     // hide origin dc interface
     document.getElementById('dgn_wrap').style.display = 'none'
@@ -62,8 +63,7 @@ require([
         // control init
         control.list.init();
         control.article.init();
-        control.btn_refresh.init();
-        control.btn_gall.init();
+        button.init();
         
         // if board/view,
         if(document.getElementById('no'))

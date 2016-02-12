@@ -1,8 +1,8 @@
 /*
-    control/btn_refresh.js
+    button/refresh.js
 */
 define([
-    './list'
+    'control/list'
 ], function (list) {
 
     var elem = null;
@@ -27,8 +27,8 @@ define([
         list.refresh();
     }
 
-    var btn_refresh = {
-        name: 'btn_refresh',
+    var refresh = {
+        name: 'refresh',
         init: function () {
             elem = document.getElementById('dcsm-btn-refresh');
             elem.addEventListener('click', btn_onclick, false);
@@ -36,5 +36,5 @@ define([
         }
     }
 
-    return btn_refresh;
+    return refresh;
 });

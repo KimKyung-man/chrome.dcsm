@@ -1,9 +1,9 @@
 /*
-    control/btn_gall.js
+    button/gall.js
 */
 define([
-    './list',
-    './content'
+    'control/list',
+    'control/content'
 ], function (list, content) {
 
     var elem = null;
@@ -14,13 +14,13 @@ define([
         document.getElementById('dcsm-article-mask').style.display = 'block';
     }
 
-    var btn_refresh = {
-        name: 'btn_gall',
+    var gall = {
+        name: 'gall',
         init: function () {
             elem = document.getElementById('dcsm-gall-name');
             elem.addEventListener('click', btn_onclick, false);
         }
     }
 
-    return btn_refresh;
+    return gall;
 });
