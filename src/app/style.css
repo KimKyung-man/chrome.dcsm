@@ -1,10 +1,6 @@
 #dcsm { height: 100vh; }
-#dcsm[data-dcsm="off"] { height: 0; }
 
-#dcsm-body {
-    display: none;
-	padding-top: 50px;
-}
+#dcsm-body { padding-top: 50px; }
 
 #dcsm-list {
     direction: rtl;
