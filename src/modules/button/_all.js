@@ -1,4 +1,5 @@
 define([
+    './auth',
     './gall',
     './go_article_top',
     './rcmmd_down',

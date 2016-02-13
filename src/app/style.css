@@ -1,8 +1,8 @@
-#dcsm {
-	height: 100vh;
-}
+#dcsm { height: 100vh; }
+#dcsm[data-dcsm="off"] { height: 0; }
 
 #dcsm-body {
+    display: none;
 	padding-top: 50px;
 }
 
@@ -84,6 +84,18 @@
 
 #dcsm-comment-write > div > div:last-child {
 	padding-right: 15px;
+}
+
+#dcsm-comment-write-authMask {
+    display: none;
+    position: absolute;
+    top: 0; right: 5px; bottom: 0; left: 15px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 3;
+    text-align: center;
+    line-height: 73px;
 }
 
 #dcsm-comment-write textarea {

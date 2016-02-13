@@ -2,13 +2,15 @@
     control/form_comment_write.js
 */
 define([
+    'auth/status',
     'util/_all'
-], function (util) {
+], function (auth, util) {
     
     //TODO
     function write() {
     }
 
+    var isLoggedIn = null;
     var elem = null;
     var callback = null;
     var form_data = null;
@@ -22,8 +24,10 @@ define([
         elem.elements.password.readonly = true;
         elem.elements.content.readonly = true;
 
-        var username = elem.elements.username.value;
-        var password = elem.elements.password.value;
+        var username = (isLoggedIn === false)
+            ? elem.elements.username.value : undefined;
+        var password = (isLoggedIn === false)
+            ? elem.elements.password.value : undefined;
         var content = elem.elements.content.value;
 
         var targetURL = 'http://gall.dcinside.com/board/view/?id='
@@ -38,10 +42,8 @@ define([
             },
             'data': {
                 'ci_t': util.getCookie('ci_c'),
-                'name': (username === true)
-                    ? undefined : username,
-                'password': (password === true)
-                    ? undefined : password,
+                'name': username,
+                'password': password,
                 'memo': content,
                 'id': (form_data.id === 'best')
                     ? form_data.best_id
@@ -65,8 +67,10 @@ define([
 
         util.ajax(sendData, function (data) {
             elem.elements.submit.removeAttribute('disabled');
-            elem.elements.username.removeAttribute('readonly');
-            elem.elements.password.removeAttribute('readonly');
+            if (isLoggedIn) {
+                elem.elements.username.removeAttribute('readonly');
+                elem.elements.password.removeAttribute('readonly');
+            }
             elem.elements.content.removeAttribute('readonly');
             elem.elements.content.value = ''; // clear
             
@@ -79,8 +83,19 @@ define([
         name: 'form_comment_write',
         init: function (cb) {
             elem = document.getElementById('dcsm-comment-write');
+            isLoggedIn = auth();
             callback = cb;
             elem.onsubmit = form_onsubmit;
+
+            if (isLoggedIn) {
+                var mask = document.getElementById('dcsm-comment-write-authMask');
+                mask.style.display = "block";
+                mask.textContent = isLoggedIn;
+                
+                elem.elements.username.readonly = true;
+                elem.elements.password.readonly = true;
+            }
+
         },
         update: function (data) {
             form_data = data;

@@ -10,7 +10,7 @@ require([
 ], function (button, control, parser, util) {
 
     // hide origin dc interface
-    document.getElementById('dgn_wrap').style.display = 'none'
+    document.getElementById('dgn_wrap').style.display = 'none';
     
     // define control event
     var lastRequest = null;
