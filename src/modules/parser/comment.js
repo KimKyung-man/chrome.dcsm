@@ -24,20 +24,16 @@ define(function () {
                 ? itemBody[0].children[1].children[0].src : null;
 
             rstItem['content'] = (function () {
-                var dccon
-                    = itemBody[1].getElementsByClassName('written_dccon')
+                var dccon = itemBody[1].getElementsByClassName('written_dccon');
                 if (dccon.length) {
-                    rstItem['dccon'] = true;
-                    return dccon[0].src;
-                } else {
-                    rstItem['dccon'] = false;
-                    return itemBody[1].childNodes[0]
-                        .textContent.trim();
-                }
+                    var img = document.createElement('img');
+                    img.src = dccon[0].src;
+                    return img;
+                } else return itemBody[1].childNodes[0].textContent.trim();
             })();
-            
+
             rstItem['ip'] = rstItem['user_id']
-            ? null : itemBody[1].children[0].textContent.trim();
+                ? null : itemBody[1].children[0].textContent.trim();
 
             rst.push(rstItem);
         }

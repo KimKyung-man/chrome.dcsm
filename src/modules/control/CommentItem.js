@@ -74,8 +74,10 @@ define(function () {
         this.elem_gallcon.children[0].src = strUrl;
     }
 
-    CommentItem.prototype.setContent = function (str) {
-        this.elem_content.textContent = str;
+    CommentItem.prototype.setContent = function (content) {
+        if(content instanceof HTMLImageElement){ // dccon
+            this.elem_content.appendChild(content);
+        } else this.elem_content.textContent = content;
     }
 
     CommentItem.prototype.setIp = function (str) {
