@@ -16,14 +16,19 @@ define([
     function form_onsubmit(e) {
         e.preventDefault();
         if (form_data === null) alert('Data not updated');
-        
+
+        elem.elements.submit.disabled = true;
+        elem.elements.username.readonly = true;
+        elem.elements.password.readonly = true;
+        elem.elements.content.readonly = true;
+
         var username = elem.elements.username.value;
         var password = elem.elements.password.value;
         var content = elem.elements.content.value;
 
         var targetURL = 'http://gall.dcinside.com/board/view/?id='
             + form_data.id + '&no=' + form_data.num;
-        
+
         var sendData = {
             'type': 'POST',
             'url': '/forms/comment_submit',
@@ -57,11 +62,16 @@ define([
                 'recommend': '0'
             }
         }
-        
+
         util.ajax(sendData, function (data) {
+            elem.elements.submit.removeAttribute('disabled');
+            elem.elements.username.removeAttribute('readonly');
+            elem.elements.password.removeAttribute('readonly');
+            elem.elements.content.removeAttribute('readonly');
+            elem.elements.content.value = ''; // clear
+            
             if (callback && typeof callback === 'function')
                 callback(data, form_data);
-            elem.elements.content.value = ''; // clear
         });
     }
 

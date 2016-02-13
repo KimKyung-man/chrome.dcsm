@@ -72,7 +72,8 @@ define(function () {
         // end of: elem create logic
         
         // bind event
-        _elem.onclick = function () {
+        _elem.onclick = function (e) {
+            e.preventDefault();
             ListItem.prototype.onclick.call(self);
         };
         // end of: bind event
@@ -92,7 +93,7 @@ define(function () {
 
         if (!data) return;
         else this.data = data;
-
+        
         this.setNum(data.num);
         this.setTitle(data.title);
         this.setArtcon(data.artcon);
@@ -102,6 +103,8 @@ define(function () {
         this.setRcmmd(data.cnt_rcmmd_up);
         this.setDate(data.date);
         this.setCntComment(data.cnt_comment);
+        
+        if(data.link) _elem.href = data.link;        
     }
 
     ListItem.prototype.setNum = function (str) {

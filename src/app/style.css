@@ -15,6 +15,13 @@
 	overflow-y: auto;
 }
 #dcsm-list > * { direction: ltr }
+#dcsm-list > .list-group > .list-group-item:visited {
+    background-color: #fafafa;
+}
+#dcsm-list > .list-group > .list-group-item:hover {
+    background-color: 	#F5FFFA;
+    color: #000;
+}
 
 #dcsm-content {
 	height: calc(100vh - 50px);

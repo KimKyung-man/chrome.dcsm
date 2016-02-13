@@ -120,17 +120,17 @@
                                         <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                         </span>
-                                        <input name="username" type="text" class="form-control" placeholder="Username">
+                                        <input name="username" type="text" class="form-control" placeholder="Username" maxlength="12" required>
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                         </span>
-                                        <input name="password" type="password" class="form-control" placeholder="Password">
+                                        <input name="password" type="password" class="form-control" placeholder="Password" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-7">
-                                    <textarea name="content" form="dcsm-comment-write" class="form-control" rows="3"></textarea>
+                                    <textarea name="content" form="dcsm-comment-write" class="form-control" rows="3" maxlength="400" required></textarea>
                                 </div>
                                 <div class="col-sm-2">
                                     <input name="dccon" type="button" class="btn btn-default btn-block" value="DCcon"></input>
