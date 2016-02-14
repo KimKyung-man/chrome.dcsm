@@ -2,9 +2,10 @@
     control/form_comment_write.js
 */
 define([
+    './dccon',
     'auth/status',
     'util/_all'
-], function (auth, util) {
+], function (dccon, auth, util) {
     
     //TODO
     function write() {
@@ -79,13 +80,14 @@ define([
         });
     }
 
-    var btn_refresh = {
+    var form_comment_write = {
         name: 'form_comment_write',
         init: function (cb) {
             elem = document.getElementById('dcsm-comment-write');
             isLoggedIn = auth();
             callback = cb;
             elem.onsubmit = form_onsubmit;
+            dccon.init();
 
             if (isLoggedIn) {
                 var mask = document.getElementById('dcsm-comment-write-authMask');
@@ -102,5 +104,5 @@ define([
         }
     }
 
-    return btn_refresh;
+    return form_comment_write;
 });

@@ -1,6 +1,7 @@
 define([
     './content',
     './comment',
+    './dccon',
     './gall',
     './list',
     './named2url',
