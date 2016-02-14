@@ -14,12 +14,13 @@ define(function () {
         var self = this;
         
         /*
-          <li  data-toggle="tooltip" data-placement="bottom" title="">
+          <li  data-toggle="tooltip" data-placement="bottom" title="" data-dismiss="modal">
             <img src=""></img>
           </li>
         */
         var _elem = document.createElement('li');
         _elem.dataset.toggle = 'tooltip';
+        _elem.dataset.dismiss = 'modal';
         _elem.dataset.placement = 'top';
         _elem.title = data.name;
 

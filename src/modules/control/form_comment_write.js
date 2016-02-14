@@ -3,13 +3,10 @@
 */
 define([
     './dccon',
+    './DcconItem',
     'auth/status',
     'util/_all'
-], function (dccon, auth, util) {
-    
-    //TODO
-    function write() {
-    }
+], function (dccon, DcconItem, auth, util) {
 
     var isLoggedIn = null;
     var elem = null;
@@ -17,7 +14,7 @@ define([
     var form_data = null;
 
     function form_onsubmit(e) {
-        e.preventDefault();
+        if (e) e.preventDefault();
         if (form_data === null) alert('Data not updated');
 
         elem.elements.submit.disabled = true;
@@ -65,8 +62,19 @@ define([
                 'recommend': '0'
             }
         }
+        console.log(form_data);
+        if(form_data.package_idx){ // dccon
+            sendData.url = '/dccon/insert_icon';
+            sendData.data.memo = undefined;
+            sendData.data.input_type = 'comment';
+            sendData.data.package_idx
+                = form_data.package_idx;
+            sendData.data.detail_idx
+                = form_data.detail_idx;
+        }
 
         util.ajax(sendData, function (data) {
+            console.log(data);
             elem.elements.submit.removeAttribute('disabled');
             if (isLoggedIn) {
                 elem.elements.username.removeAttribute('readonly');
@@ -93,15 +101,22 @@ define([
                 var mask = document.getElementById('dcsm-comment-write-authMask');
                 mask.style.display = "block";
                 mask.textContent = isLoggedIn;
-                
+
                 elem.elements.username.readonly = true;
                 elem.elements.password.readonly = true;
+                elem.elements.username.removeAttribute('required');
+                elem.elements.password.removeAttribute('required');
             }
-
         },
         update: function (data) {
             form_data = data;
         }
+    }
+
+    DcconItem.prototype.onclick = function () {
+        form_data.package_idx = this.data.packageIndex;
+        form_data.detail_idx = this.data.index;
+        form_onsubmit();
     }
 
     return form_comment_write;

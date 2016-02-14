@@ -7,6 +7,7 @@ define([
     'util/_all'
 ], function (DcconItem, parser, util) {
 
+    var madal = null;
     var head = null;
     var body = null;
     var csrf_token = null;
@@ -59,11 +60,16 @@ define([
                 _elem_temp_ul.appendChild(item.elem);
             }
         }
+        
+        // activate first
+        head.firstChild.classList.add('active');
+        body.firstChild.classList.add('active');
     }
 
     var dccon = {
         name: 'dccon',
         init: function () {
+            modal = document.getElementById('dcsm-dccon');
             head = document.getElementById('dcsm-dccon-list-head');
             body = document.getElementById('dcsm-dccon-list-body');
             csrf_token = util.getCookie('ci_c');

@@ -1,6 +1,9 @@
 define([
     './article',
+    './comment',
 	'./content',
+    './dccon',
+    './DcconItem',
     './form_comment_write',
     './list',
     './ListItem'
