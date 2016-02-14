@@ -26,10 +26,17 @@
 }
 /*
     I would be better do this with script
-                                       navbar padding footer */
+    - if footer content changed, must be fix.
+                            navbar footer footer-margin    
+*/
 #dcsm-article {
     position: relative;
-    min-height: calc(100vh - 50px - 30px - 142px);
+    min-height: calc(100vh - 50px - 136px - 15px);
+}
+#dcsm-article::before {
+    /* fuck you margin */
+    display: table;
+    content: " ";
 }
 #dcsm-article-mask {
     position: absolute;

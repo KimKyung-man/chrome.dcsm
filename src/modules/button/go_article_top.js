@@ -1,7 +1,9 @@
 /*
     button/go_article_top.js
 */
-define(function () {
+define([
+    'control/content'
+], function (content) {
 
     var elem = null;
     var target = null;
@@ -16,6 +18,7 @@ define(function () {
             elem = document.getElementById('dcsm-btn-go-article-top');
             target = document.getElementById('dcsm-content');
             elem.addEventListener('click', btn_onclick, false);
+            content.sub_update_end(btn_onclick);
         }
     }
 
