@@ -2,10 +2,11 @@
     control/list.js
 */
 define([
+    './article',
     './ListItem',
     'parser/_all',
     'util/_all'
-], function (ListItem, parser, util) {
+], function (article, ListItem, parser, util) {
 
     var elem;
     var gallId;
@@ -126,5 +127,26 @@ define([
         },
         get_mod_rcmmd: function () { return mod_rcmmd; }
     }
+    
+    // define control event
+    var lastRequest = null;
+    ListItem.prototype.onclick = function () {
+        lastRequest = new Date;
+        var sendTime = lastRequest;
+        var self = this;
+        util.ajax({
+            'type': 'GET',
+            'url': self.data.link
+        }, function (data) {
+            if (lastRequest > sendTime) return;
+            history.pushState('', '', self.data.link);
+            var doc = document.implementation.createHTMLDocument('');
+            doc.open();
+            doc.write(data);
+            article.update(doc, self);
+            doc.close();
+        });
+    };
+    
     return list;
 });

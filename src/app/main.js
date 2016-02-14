@@ -11,26 +11,6 @@ require([
 
     // hide origin dc interface
     document.getElementById('dgn_wrap').style.display = 'none';
-    
-    // define control event
-    var lastRequest = null;
-    control.ListItem.prototype.onclick = function () {
-        lastRequest = new Date;
-        var sendTime = lastRequest;
-        var self = this;
-        util.ajax({
-            'type': 'GET',
-            'url': self.data.link
-        }, function (data) {
-            if (lastRequest > sendTime) return;
-            history.pushState('', '', self.data.link);
-            var doc = document.implementation.createHTMLDocument('');
-            doc.open();
-            doc.write(data);
-            control.article.update(doc, self);
-            doc.close();
-        });
-    };
 
     // load app interface
     util.ajax({
