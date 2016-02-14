@@ -10,7 +10,6 @@ define(function () {
         return rst;
     }
 
-    // TODO: Show cnt_comment
     function ListItem(data) {
         var self = this;
         // elem create logic

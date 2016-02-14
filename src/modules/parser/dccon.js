@@ -17,9 +17,7 @@ define([
             rstItem0['items'] = new Array;
             rstItem0['name'] = pkgHead.title;
             rstItem0['index'] = pkgHead.getAttribute('package_idx');
-
-            rstItem0['icon'] = document.createElement('img');
-            rstItem0['icon'].src = pkgHead.children[0].src;
+            rstItem0['icon_src'] = pkgHead.children[0].src;
 
             var itemTebs = pkgBody.children;
             for (var j = 0; j < itemTebs.length; ++j) {
@@ -30,9 +28,7 @@ define([
                     var rstItem1 = new Object;
                     rstItem1['name'] = item.title;
                     rstItem1['index'] = item.getAttribute('detail_idx');
-
-                    rstItem1['icon'] = document.createElement('img');
-                    rstItem1['icon'].src = item.children[0].src;
+                    rstItem1['icon_src'] = item.children[0].src;
 
                     rstItem0.items.push(rstItem1);
                 }
