@@ -18,19 +18,14 @@ define([
             });
             mask = document.getElementById('dcsm-article-mask');
         },
-        update: function (xml, srcItem) {
-            var isGood = xml.getElementById('dgn_content_de') !== null;
-            if (isGood) {
-                var cttData = parser.content(xml);
+        update: function (data, srcItem) {
+            content.update(data);
+            comment.refresh(data);
+            form_cmt_wr.update(data);
+            if (srcItem) srcItem.update(data);
 
-                content.update(cttData);
-                comment.refresh(cttData);
-                form_cmt_wr.update(cttData);
-                if (srcItem) srcItem.update(cttData);
-
-                if (mask.style.display !== 'none')
-                    mask.style.display = 'none';
-            }
+            if (mask.style.display !== 'none')
+                mask.style.display = 'none';
         },
         name: 'article'
     }

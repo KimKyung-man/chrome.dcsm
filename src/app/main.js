@@ -47,6 +47,6 @@ require([
         
         // if board/view,
         if (document.getElementById('no'))
-            control.article.update(document);
+            control.article.update(parser.content(document));
     });
 });

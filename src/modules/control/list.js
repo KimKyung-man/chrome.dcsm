@@ -5,8 +5,10 @@ define([
     './article',
     './ListItem',
     'parser/_all',
-    'util/_all'
-], function (article, ListItem, parser, util) {
+    'util/_all',
+    'reader/content',
+    'reader/list'
+], function (article, ListItem, parser, util, contentReader, listReader) {
 
     var elem;
     var gallId;
@@ -59,25 +61,16 @@ define([
                 + gallId + '&no=1&page=' + (++list.currentPage);
             if (mod_rcmmd) targetURL += '&exception_mode=recommend';
 
-            util.ajax({
-                'type': 'GET',
-                'url': targetURL
-            }, function (data) {
-                var doc = document.implementation.createHTMLDocument('');
-                doc.open();
-                doc.write(data);
-                var parsed = parser.list(doc);
-                doc.close();
-
-                for (var i in parsed) {
-                    if (!parsed[i].isNotice)
-                        list.addItem(parsed[i]);
+            listReader(targetURL, function(data){
+                for (var i in data) {
+                    if (!data[i].isNotice)
+                        list.addItem(data[i]);
                 }
 
                 setTimeout(function () {
                     cs_nextPage = false;
                 }, 3000);
-            })
+            });
         },
         refresh: function () {
             if (cs_refresh) return;
@@ -87,28 +80,19 @@ define([
                 + gallId + '&no=1&page=1';
             if (mod_rcmmd) targetURL += '&exception_mode=recommend';
             
-            util.ajax({
-                'type': 'GET',
-                'url': targetURL
-            }, function (data) {
-                var doc = document.implementation.createHTMLDocument('');
-                doc.open();
-                doc.write(data);
-                var parsed = parser.list(doc);
-                doc.close();
-
-                for (var i in parsed) {
+            listReader(targetURL, function(data){
+                for (var i in data) {
                     // reverse
-                    var item = parsed[parsed.length - i - 1];
-                    if (item.isNotice)
-                        break; // notice
+                    var item = data[data.length - i - 1];
+                    if (item.isNotice) break; // notice
+                    
                     list.addItem(item);
                 }
 
                 setTimeout(function () {
                     cs_refresh = false;
                 }, 3000);
-            })
+            });
         },
         reboot: function () {
             list.currentPage = 1;
@@ -134,18 +118,12 @@ define([
         lastRequest = new Date;
         var sendTime = lastRequest;
         var self = this;
-        util.ajax({
-            'type': 'GET',
-            'url': self.data.link
-        }, function (data) {
+        
+        contentReader(self.data.link, function(data){
             if (lastRequest > sendTime) return;
             history.pushState('', '', self.data.link);
-            var doc = document.implementation.createHTMLDocument('');
-            doc.open();
-            doc.write(data);
-            article.update(doc, self);
-            doc.close();
-        });
+            article.update(data, self);
+        })
     };
     
     return list;
