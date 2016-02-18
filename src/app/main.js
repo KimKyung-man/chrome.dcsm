@@ -6,11 +6,18 @@ require([
     'button/_all',
     'control/_all',
     'parser/_all',
-    'util/_all'
-], function (button, control, parser, util) {
+    'util/_all',
+    'reader/content'
+], function (button, control, parser, util, contentReader) {
 
     // hide origin dc interface
     document.getElementById('dgn_wrap').style.display = 'none';
+
+    window.onpopstate = function (e) {
+        contentReader(e.state, function(data){
+            control.article.update(data);
+        })
+    }
 
     // load app interface
     util.ajax({
@@ -46,7 +53,10 @@ require([
         button.init();
         
         // if board/view,
-        if (document.getElementById('no'))
-            control.article.update(parser.content(document));
+        if (document.getElementById('no')) {
+            var parsed = parser.content(document);
+            history.pushState(location.href, '', location.href);
+            control.article.update(parsed);
+        }
     });
 });

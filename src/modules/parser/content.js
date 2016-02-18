@@ -32,20 +32,24 @@ define(function () {
             .children[0].children[0].textContent.trim();
         rst['ip'] = body.children[0].children[1].children[0]
             .children[1].textContent.trim();
-        rst['content'] = body.children[19]              // div.re_gall_box_1
+        rst['content'] = document.createElement('div');
+        var contentTarget = body.children[19]           // div.re_gall_box_1
             .children[0].children[0].lastElementChild   // table
             .children[0].children[0].children[0]        // tbody tr td
-            .cloneNode(true);
+        
+        while (contentTarget.firstChild)
+            rst['content'].appendChild(contentTarget.firstChild);
+            
         // get mobile-writed image
         // f-u DC
         (function () {
             var target = body.children[19].children[0]
                 .children[0].children;
-                
+
             rst['content'].insertBefore(
                 document.createElement('br'),
                 rst['content'].firstChild);
-                
+
             for (var i in target) {
                 // reverse
                 var item = target[target.length - 1 - i];
@@ -55,7 +59,7 @@ define(function () {
                         rst['content'].firstChild);
             }
         })();
-        
+
         rst['recommend'] = xml.getElementById('recommend').value;
         rst['btn_rcmmd_up'] = xml
             .getElementById('recommend_vote_up');
