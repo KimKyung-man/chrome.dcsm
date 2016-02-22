@@ -11,7 +11,9 @@ define([
     var mask;
 
     var article = {
+        elem: null,
         init: function () {
+            article.elem = document.getElementById('dcsm-content');
             content.init();
             comment.init();
             form_cmt_wr.init(function (datam, cttData) {
@@ -24,7 +26,7 @@ define([
             // add content A-tag event
             // it will be moved to module
             var tag_a = data.content.getElementsByTagName('a');
-            var checker1 = /(http:\/\/gall.dcinside.com)?\/board\/view\/\?(((id=[a-zA-Z0-9]+)|(no=[0-9]+)|(page=[0-9]+))&?)+/i;
+            var checker1 = /(http:\/\/gall.dcinside.com)?\/board\/view\/\?(((id=[a-zA-Z0-9]+)|(no=[0-9]+))&?)+/i;
             var checker2 = /(http:\/\/gall.dcinside.com)?\/[a-z0-9]+\/[0-9]+/i;
             for (var i = 0; i < tag_a.length; ++i) {
                 var matched = checker1.exec(tag_a[i].href);

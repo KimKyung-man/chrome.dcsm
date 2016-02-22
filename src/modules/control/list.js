@@ -7,8 +7,9 @@ define([
     'parser/_all',
     'util/_all',
     'reader/content',
-    'reader/list'
-], function (article, ListItem, parser, util, contentReader, listReader) {
+    'reader/list',
+    'button/go_list'
+], function (article, ListItem, parser, util, contentReader, listReader, btn_go_list) {
 
     var elem;
     var gallId;
@@ -61,7 +62,7 @@ define([
                 + gallId + '&no=1&page=' + (++list.currentPage);
             if (mod_rcmmd) targetURL += '&exception_mode=recommend';
 
-            listReader(targetURL, function(data){
+            listReader(targetURL, function (data) {
                 for (var i in data) {
                     if (!data[i].isNotice)
                         list.addItem(data[i]);
@@ -79,8 +80,8 @@ define([
             var targetURL = 'http://gall.dcinside.com/board/view/?id='
                 + gallId + '&no=1&page=1';
             if (mod_rcmmd) targetURL += '&exception_mode=recommend';
-            
-            listReader(targetURL, function(data){
+
+            listReader(targetURL, function (data) {
                 for (var i in data) {
                     // reverse
                     var item = data[data.length - i - 1];
@@ -118,13 +119,27 @@ define([
         lastRequest = new Date;
         var sendTime = lastRequest;
         var self = this;
-        
-        contentReader(self.data.link, function(data){
+
+        contentReader(self.data.link, function (data) {
             if (lastRequest > sendTime) return;
             history.pushState(self.data.link, '', self.data.link);
             article.update(data, self);
-        })
+            
+            if (!((article.elem.offsetHeight > 0)
+                && (article.elem.offsetWidth > 0))) {
+                    console.log("qwer");
+            // if content not visible
+                elem.parentElement.classList.add('hidden-xs');
+                article.elem.classList.remove('hidden-xs');
+            }
+        });
     };
     
+    // define beutton event
+    btn_go_list.onclick = function () {
+        article.elem.classList.add('hidden-xs');
+        elem.parentElement.classList.remove('hidden-xs');
+    }
+
     return list;
 });

@@ -31,7 +31,7 @@
 */
 #dcsm-article {
     position: relative;
-    min-height: calc(100vh - 50px - 136px - 15px);
+    min-height: calc(100vh - 50px - 138px - 15px);
 }
 #dcsm-article::before {
     /* fuck you margin */
@@ -130,6 +130,7 @@
     margin: 15px -15px 0 -15px;
 }
 
+#dcsm-btn-rcmmd-list { margin-left: -15px !important; }
 #dcsm-btn-rcmmd-list[data-dcsm="deactive"] { color: #333}
 #dcsm-btn-rcmmd-list[data-dcsm="deactive"]:hover { color: #666 }
 #dcsm-btn-rcmmd-list[data-dcsm="active"] { color: #ee0}

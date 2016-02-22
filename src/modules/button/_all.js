@@ -2,6 +2,7 @@ define([
     './auth',
     './gall',
     './go_article_top',
+    './go_list',
     './rcmmd_down',
     './rcmmd_list',
     './rcmmd_up',
