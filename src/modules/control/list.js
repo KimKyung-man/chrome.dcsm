@@ -127,7 +127,6 @@ define([
             
             if (!((article.elem.offsetHeight > 0)
                 && (article.elem.offsetWidth > 0))) {
-                    console.log("qwer");
             // if content not visible
                 elem.parentElement.classList.add('hidden-xs');
                 article.elem.classList.remove('hidden-xs');
