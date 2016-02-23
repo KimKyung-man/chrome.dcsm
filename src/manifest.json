@@ -1,10 +1,9 @@
 {
     "manifest_version": 2,
     "name": "DCsm",
-    "version": "0.0.0",
-    //"default_locale": "ko",
+    "version": "1.0.0",
     "description": "DCinside gall-ing helper",
-    "author": "lesomnus@gmail.com",
+	"author": "lesomnus@gmail.com",
     "icons": {
     	"16": "img/icon16.png",
 		"32": "img/icon32.png",
@@ -35,7 +34,7 @@
         "modules/*",
         "app/index.html",
         "app/interface.js",
-        "lib/bootstrap.min.js", // jQuery-ui conflict problem. Load last.
+        "lib/bootstrap.min.js",
         "img/*"
     ]
 }
