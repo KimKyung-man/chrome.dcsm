@@ -7,7 +7,7 @@ define([
     'util/_all'
 ], function (DcconItem, parser, util) {
 
-    var madal = null;
+    var modal = null;
     var head = null;
     var body = null;
     var csrf_token = null;

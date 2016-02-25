@@ -18,7 +18,7 @@ define([
             elem = document.getElementById('dcsm-btn-go-article-top');
             target = document.getElementById('dcsm-content');
             elem.addEventListener('click', btn_onclick, false);
-            content.sub_update_end(btn_onclick);
+            content.addEventListener('update_end', btn_onclick);
         }
     }
 

@@ -32,7 +32,7 @@ define([
         init: function () {
             elem = document.getElementById('dcsm-btn-rcmmd-down');
             elem.addEventListener('click', btn_onclick, false);
-            content.sub_update_end(handle_content_update_end);
+            content.addEventListener('update_end', handle_content_update_end);
         }
     }
 
