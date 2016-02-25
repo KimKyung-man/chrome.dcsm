@@ -24,14 +24,18 @@ define(['jquery-2.2.0.min'], function ($) {
         };
     	req.send(params);
         */
-
+      /* 아래의 헤더만 있으면 페이지를 반환함. */
+      /* 이전 글 no 가 없으면 페이지를 반환하지 않았던 이유임. */
+      // accept text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
         $.ajax({
             'type': head.type,
             'chach': false,
             'async': true,
             'url': head.url,
             'data': head.data ? head.data : undefined,
-            'headers': head.headers? head.headers : undefined,
+            'headers': {
+              Accept : "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+            },
             'success': cb,
             'err': cb
         });
