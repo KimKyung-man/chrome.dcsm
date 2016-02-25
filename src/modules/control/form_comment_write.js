@@ -62,19 +62,18 @@ define([
                 'recommend': '0'
             }
         }
-        console.log(form_data);
-        if(form_data.package_idx){ // dccon
+
+        if (form_data.package_idx) { // dccon
             sendData.url = '/dccon/insert_icon';
             sendData.data.memo = undefined;
             sendData.data.input_type = 'comment';
             sendData.data.package_idx
-                = form_data.package_idx;
+            = form_data.package_idx;
             sendData.data.detail_idx
-                = form_data.detail_idx;
+            = form_data.detail_idx;
         }
 
         util.ajax(sendData, function (data) {
-            console.log(data);
             elem.elements.submit.removeAttribute('disabled');
             if (isLoggedIn) {
                 elem.elements.username.removeAttribute('readonly');
@@ -94,7 +93,13 @@ define([
             elem = document.getElementById('dcsm-comment-write');
             isLoggedIn = auth();
             callback = cb;
-            elem.onsubmit = form_onsubmit;
+            elem.addEventListener('submit', form_onsubmit);
+            elem.addEventListener('keypress', function (e) {
+                console.log(e);
+                var key = e.which || e.keyCode;
+                if (key === 13) form_onsubmit();
+            })
+            
             dccon.init();
 
             if (isLoggedIn) {
