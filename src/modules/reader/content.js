@@ -17,7 +17,7 @@ define([
             doc.open();
             doc.write(data);
             var parsed = contentParser(doc);
-            doc.close;
+            doc.close();
 
             if (typeof callback === 'function')
                 callback(parsed);
