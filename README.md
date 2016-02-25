@@ -4,7 +4,7 @@ DCsm
 Introduction
 ----------
 Now 1.0.0 Released!
-Chrome 웹 스토어에서 무료로 제공됩니다!
+[Chrome 웹 스토어](https://chrome.google.com/webstore/detail/dcsm/pmmgcpnhibhbnnnkjgdgimecpkpheacp?utm_source=chrome-ntp-icon)에서 무료로 제공됩니다!
 
 Make better DCsm
 ----------
