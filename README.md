@@ -4,8 +4,7 @@ DCsm
 ![Promo](http://s11.postimg.org/570jjjt1v/dcsm.png)
 
 ##Introduction
-DCSM 은 갤질을 더 편하게 할 수 있게끔 도와줄 목적으로 만들어진  
-구글 크롬 확장 프로그램입니다.  
+편안한 갤질을위한 새로운 유저 인터페이스.  
   
 ##Install
 Now 1.0.0 Released!
