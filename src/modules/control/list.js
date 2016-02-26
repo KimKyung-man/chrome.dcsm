@@ -42,14 +42,18 @@ define([
       }
     },
     items: new Array,
+    // revers of items
+    rItems: new Array,  
     addItem: function (data) {
       var item = new ListItem(data);
       if (!list.items.length
         || (list.items[list.items.length - 1].data.num > data.num)) {
         list.items.push(item);
+        list.rItems.unshift(item);
         elem.appendChild(item.elem);
       } else if (list.items[0].data.num < data.num) {
         list.items.unshift(item);
+        list.rItems.push(item);
         elem.insertBefore(item.elem, list.items[1].elem);
       } else {
           var trg = list.findItemByNum(data.num);
@@ -60,9 +64,15 @@ define([
     // 'num' is article's 글번호.  
     findItemByNum: function(num){
         num = parseInt(num);
-        return list.items.find(function(el){
-            return el.getNum() === num;
-        })
+        
+        // 한페이지에 글이 36개 로드됨.
+        // 만약 찾으려는 것이 최신 ListItem과 차이가 36보다 작으면
+        // 정방향 탐색, 그렇지 않으면 역방향 탐색이 효율적일 것.
+        var isRecent = list.items[0].getNum() - num < 36;
+        var finder  = function(el){ return el.getNum() === num; }
+        
+        if(isRecent) return list.items.find(finder);
+        else return list.rItems.find(finder);
     },
     nextPage: function () {
       if (cs_nextPage) return;
