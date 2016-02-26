@@ -22,6 +22,12 @@ define(function () {
             rstItem['gallcon']
             = itemBody[0].children[1]
                 ? itemBody[0].children[1].children[0].src : null;
+            //rstItem['delete_btn'] = itemBody[3].children[0] ?
+            //  itemBody[3].children[0].children[0].src : null;
+            rstItem['delete_btn'] = itemBody[3].children[0] ?
+              itemBody[3].children[0] : null;
+            rstItem['delete_btn'] = itemBody[3].children[0] ?
+              itemBody[3].children[0] : null;
 
             rstItem['content'] = (function () {
                 var dccon = itemBody[1].getElementsByClassName('written_dccon');

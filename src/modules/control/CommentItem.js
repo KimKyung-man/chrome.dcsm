@@ -19,7 +19,10 @@ define(function () {
                 <span data-dcsm="gallcon"></span></td>
             <td><span data-dcsm="content"></span>
                 <small data-dcsm="ip"></small></td>
-            <td data-dcsm="date"></td>
+             <td>
+             <span data-dcsm="date"></span>
+             <span data-dcsm="delete_btn"></span>
+             </td>
         </tr>
         */
 
@@ -28,22 +31,24 @@ define(function () {
         var _elem_gallcon = elemCstr('span', undefined, 'gallcon');
         var _elem_content = elemCstr('span', undefined, 'content');
         var _elem_ip = elemCstr('small', undefined, 'ip');
-        var _elem_date = elemCstr('td', undefined, 'date');
+        var _elem_date = elemCstr('span', undefined, 'date');
+        var _elem_delete_btn = elemCstr('span', undefined, 'delete_btn');
 
         var _temp_elem_td1 = document.createElement('td');
         var _temp_elem_td2 = document.createElement('td');
+        var _temp_elem_td3 = document.createElement('td');
 
         _temp_elem_td1.appendChild(_elem_author);
         _temp_elem_td1.appendChild(_elem_gallcon);
         _temp_elem_td2.appendChild(_elem_content);
         _temp_elem_td2.appendChild(_elem_ip);
-        
+        _temp_elem_td3.appendChild(_elem_date);
+        _temp_elem_td3.appendChild(_elem_delete_btn);
+
         _elem.appendChild(_temp_elem_td1);
         _elem.appendChild(_temp_elem_td2);
-        _elem.appendChild(_elem_date);
+        _elem.appendChild(_temp_elem_td3);
         // end of: elem create logic
-        
-        
         
         this.elem = _elem;
         this.elem_author = _elem_author;
@@ -51,7 +56,8 @@ define(function () {
         this.elem_content = _elem_content;
         this.elem_ip = _elem_ip;
         this.elem_date = _elem_date;
-        
+        this.elem_delete_btn = _elem_delete_btn;
+
         if (!data) return;
         else this.data = data;
 
@@ -60,6 +66,7 @@ define(function () {
         this.setContent(data.content);
         this.setIp(data.ip);
         this.setDate(data.date);
+        this.setDeleteBtn(data.delete_btn);
     }
 
     CommentItem.prototype.setAuthor = function (str) {
@@ -88,5 +95,13 @@ define(function () {
         this.elem_date.textContent = str;
     }
     
+    CommentItem.prototype.setDeleteBtn = function (itemHtml) {
+        if(!itemHtml)
+            return this.elem_delete_btn.innerHTML = "";
+        if (!this.elem_delete_btn.children.length)
+            this.elem_delete_btn.appendChild(itemHtml);
+        this.elem_delete_btn.children[0].src = itemHtml;
+    }
+
     return CommentItem;
 });
