@@ -22,7 +22,6 @@ define([
         name: 'rcmmd_list',
         init: function () {
             elem = document.getElementById('dcsm-btn-rcmmd-list');
-
             if (isActive = (qs('exception_mode') === 'recommend'))
                 elem.dataset.dcsm = 'active';
 

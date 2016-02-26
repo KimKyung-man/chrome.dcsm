@@ -167,6 +167,10 @@ define(function () {
         this.elem_cnt_comment.textContent = str;
     }
 
+    ListItem.prototype.getNum = function () {
+        return parseInt(this.elem_num.textContent);
+    }
+
     ListItem.prototype.getTitle = function () {
         return this.elem_title.textContent;
     }

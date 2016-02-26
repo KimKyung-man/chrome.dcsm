@@ -51,8 +51,18 @@ define([
       } else if (list.items[0].data.num < data.num) {
         list.items.unshift(item);
         elem.insertBefore(item.elem, list.items[1].elem);
-      } else return false;
+      } else {
+          var trg = list.findItemByNum(data.num);
+          if(trg) trg.update(data);
+      };
       return true;
+    },
+    // 'num' is article's 글번호.  
+    findItemByNum: function(num){
+        num = parseInt(num);
+        return list.items.find(function(el){
+            return el.getNum() === num;
+        })
     },
     nextPage: function () {
       if (cs_nextPage) return;

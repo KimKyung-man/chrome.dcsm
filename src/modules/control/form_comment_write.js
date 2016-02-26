@@ -95,7 +95,6 @@ define([
             callback = cb;
             elem.addEventListener('submit', form_onsubmit);
             elem.addEventListener('keypress', function (e) {
-                console.log(e);
                 var key = e.which || e.keyCode;
                 if (key === 13) form_onsubmit();
             })
