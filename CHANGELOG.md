@@ -10,7 +10,7 @@
      [#10](https://github.com/lesomnus/chrome.dcsm/issues/10),
      [#11](https://github.com/lesomnus/chrome.dcsm/pull/11))
 
-### Ehancement
+### Ehancements
 - **[modules/control/form_comment_write.js](https://github.com/lesomnus/chrome.dcsm/blob/master/src/modules/control/form_comment_write.js)**
   - 댓글 작성 중 `Enter`입력시, 개행 대신에 바로 Submit 되도록 개선되었습니다.
     ([c41c947a](c41c947a2770ca5fd1e03c302bcd3447bae5907c),
