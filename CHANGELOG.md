@@ -1,7 +1,7 @@
 1.0.x
 ==========
 
-## 1.0.1
+## 1.0.1 (2016-02-27)
 
 ### Bug Fixes
 - **[modules/util/ajax.js](https://github.com/lesomnus/chrome.dcsm/blob/master/src/modules/util/ajax.js)**
@@ -16,6 +16,6 @@
     ([c41c947a](https://github.com/lesomnus/chrome.dcsm/commit/c41c947a2770ca5fd1e03c302bcd3447bae5907c),
      [#3](https://github.com/lesomnus/chrome.dcsm/issues/3))
 - **[modules/control/list.js](https://github.com/lesomnus/chrome.dcsm/blob/master/src/modules/control/list.js)**
-  - 목록을 `Refresh`할 때, 이미 로드된 정보가 다시 로드됐을 경우, 해당 `ListItem`을 업데이트하도록 개선되었습니다. 
+  - 목록을 Refresh할 때, 이미 로드된 정보가 다시 로드됐을 경우, 해당 `ListItem`을 업데이트하도록 개선되었습니다. 
     ([b0da979b](https://github.com/lesomnus/chrome.dcsm/commit/b0da979bde65aa85fc5a0a09d39c0c6a14c7cb3f),
      [#4](https://github.com/lesomnus/chrome.dcsm/issues/14))
