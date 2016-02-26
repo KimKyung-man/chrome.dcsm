@@ -1,7 +1,7 @@
 DCsm
 ==========
 
-![Promo](http://s13.postimg.org/aajjiu7t3/dcsm.png)
+![Promo](http://s11.postimg.org/570jjjt1v/dcsm.png)
 
 ###Introduction
 DCSM 은 갤질을 더 편하게 할 수 있게끔 도와줄 목적으로 만들어진  
