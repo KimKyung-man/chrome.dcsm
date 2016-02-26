@@ -13,11 +13,11 @@ define([
             'type': 'GET',
             'url': url
         }, function (data) {
-            var doc = document.implementation.createHTMLDocument('');
+            var doc = document.implementation.createHTMLDocument(url);
             doc.open();
             doc.write(data);
             var parsed = listParser(doc);
-            doc.close;
+            doc.close();
 
             if (typeof callback === 'function')
                 callback(parsed);

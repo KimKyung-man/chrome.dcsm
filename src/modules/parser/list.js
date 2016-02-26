@@ -6,33 +6,26 @@ define([
     './named2url'
 ], function (n2url) {
     function list(xml) {
-        var rst = new Array;
-
-        var lists = xml.getElementById('dgn_wide');
-        if (lists) {
-            lists = lists.getElementsByTagName('tbody')[0].children;
-        } else if (
-            lists = xml.getElementById('dgn_gallery_left')
-            ) {
-            lists = Array.prototype.slice.call(
-                lists.getElementsByTagName('thead')[0].children
-                , 1);   // children[0] is thead
-        } else return undefined;
+        var rst = [];
+        var lists = [];
+        var container = xml.getElementById('dgn_wrap');
+        if (container)
+            lists = container.getElementsByClassName('tb');
+        else return undefined;
 
         var index = {
             'num': 0,
             'author': 2,
             'viewed': 4,
             'cnt_rcmmd_up': 5
-        }
+        };
 
         for (var i = 0; i < lists.length; ++i) {
             var itemBody = lists[i].children;
             var rstItem = new Object;
 
             for (var prop in index) {
-                rstItem[prop]
-                = itemBody[index[prop]].textContent;
+                rstItem[prop] = itemBody[index[prop]].textContent;
             }
 
             if (!isNaN(rstItem['num'])) {
@@ -79,13 +72,12 @@ define([
                 ? itemBody[index['author']]     // if has user_id
                     .getElementsByTagName('img')[0].src
                 : null;
-                
+
             rstItem['date']
             = itemBody[3].title.trim();
 
             rst.push(rstItem);
         }
-
         return rst;
     }
 
