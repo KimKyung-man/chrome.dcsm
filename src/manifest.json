@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "DCsm",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "DCinside gall-ing helper",
 	"author": "lesomnus@gmail.com",
     "icons": {
