@@ -1,0 +1,30 @@
+body { width: 900px; }
+form { margin-bottom: 10px; }
+
+#main-view {
+    height: calc(542px - 50px);
+    overflow-y: scroll;
+}
+
+#main-footer {
+    height: 50px;
+    padding: 8px;
+    border-top: solid lightgray 1px;
+}
+
+#main-footer > * { margin-right: 8px; }
+#main-footer > *:first-child { margin-right: 0; }
+
+#option-write-postfix { width: calc(100% - 36px); }
+#option-write-postfix-help { width: 32px; text-align: center; }
+
+.item {
+    margin-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+.item .item-head { text-align: right; }
+.item .item-body { margin-top: 4px; }
+.item input, .item select { height: 34px !important; }
+.item input { width: 78px; }

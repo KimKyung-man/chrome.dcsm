@@ -3,14 +3,23 @@
     "name": "DCsm",
     "version": "1.0.1",
     "description": "DCinside gall-ing helper",
-	"author": "lesomnus@gmail.com",
+    "author": "lesomnus@gmail.com",
     "icons": {
-    	"16": "img/icon16.png",
-		"32": "img/icon32.png",
-		"48": "img/icon48.png",
-		"64": "img/icon64.png",
-		"256": "img/icon256.png"
-	},
+        "16": "img/icon16.png",
+        "32": "img/icon32.png",
+        "48": "img/icon48.png",
+        "64": "img/icon64.png",
+        "256": "img/icon256.png"
+    },
+    "options_ui": {
+        // Required.
+        "page": "app/option/index.html",
+        // Recommended.
+        "chrome_style": true
+        // Not recommended; only provided for backwards compatibility,
+        // and will be unsupported in a future version of Chrome (TBD).
+        //"open_in_tab": true
+    },
     "content_scripts": [
         {
             "matches": [
@@ -28,7 +37,8 @@
     ],
     "permissions": [
         "http://gall.dcinside.com/board/lists/*",
-        "http://gall.dcinside.com/board/view/*"
+        "http://gall.dcinside.com/board/view/*",
+        "storage"
     ],
     "web_accessible_resources": [
         "modules/*",
