@@ -43,12 +43,13 @@ define([
                     }
                 }
 
-                if (targetURL) tag_a[i].addEventListener('click', function (e) {
+                if (targetURL) (function(targetURL){ tag_a[i].addEventListener('click', function (e) {
                     e.preventDefault();
                     contentReader(targetURL, function (data) {
+                        history.pushState(targetURL, '', targetURL);
                         article.update(data);
                     })
-                })
+                })})(targetURL);
             }
             // end of: add content A-tag event
 
