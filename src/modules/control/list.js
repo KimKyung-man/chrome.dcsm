@@ -143,7 +143,7 @@ define([
 
     contentReader(self.data.link, function (data) {
       if (lastRequest > sendTime) return;
-      history.pushState(self.data.link, '', self.data.link);
+      data.link = self.data.link;
       article.update(data, self);
 
       if (!((article.elem.offsetHeight > 0)

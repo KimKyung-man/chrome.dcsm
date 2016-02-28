@@ -22,7 +22,10 @@ define([
             mask = document.getElementById('dcsm-article-mask');
         },
         update: function (data, srcItem) {
-            
+            console.log(data);
+            if(data.link)
+            history.pushState(data.link, '', data.link);
+
             // add content A-tag event
             // it will be moved to module
             var tag_a = data.content.getElementsByTagName('a');
@@ -46,7 +49,7 @@ define([
                 if (targetURL) (function(targetURL){ tag_a[i].addEventListener('click', function (e) {
                     e.preventDefault();
                     contentReader(targetURL, function (data) {
-                        history.pushState(targetURL, '', targetURL);
+                        data.link = targetURL;
                         article.update(data);
                     })
                 })})(targetURL);
