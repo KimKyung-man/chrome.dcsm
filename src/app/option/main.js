@@ -29,13 +29,19 @@
                         } else callback(name + '-' + prop, value[prop], dvalue[prop]);
                     }
                 })('option', items, option.default, function (id, value, dvalue) {
-                    if (value !== dvalue)
-                        document.getElementById(id).value = value;
+                    if (value !== dvalue) {
+                        try {
+                            document.getElementById(id).value = value;
+                        } catch(e){
+                            console.err("undetected option id: " + id, e);   
+                        }
+                    }
                 });
             });
 
         },
         save: function (callback) {
+            if (!option.default) return console.err("option is not initiated");
             var rst = new Object;
             (function dfs(name, dvalue, src, callback) {
                 for (var prop in dvalue) {

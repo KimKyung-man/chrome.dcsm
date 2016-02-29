@@ -3,6 +3,7 @@ form { margin-bottom: 10px; }
 
 #main-view {
     height: calc(542px - 50px);
+    padding-left: 40px;
     overflow-y: scroll;
 }
 
@@ -28,3 +29,16 @@ form { margin-bottom: 10px; }
 .item .item-body { margin-top: 4px; }
 .item input, .item select { height: 34px !important; }
 .item input { width: 78px; }
+
+/* scroll */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #bbb; 
+}

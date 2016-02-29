@@ -44,6 +44,7 @@
         "modules/*",
         "app/index.html",
         "app/interface.js",
+        "app/option/default.json",
         "lib/bootstrap.min.js",
         "img/*"
     ]

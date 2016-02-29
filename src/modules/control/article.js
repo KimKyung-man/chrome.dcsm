@@ -22,7 +22,6 @@ define([
             mask = document.getElementById('dcsm-article-mask');
         },
         update: function (data, srcItem) {
-            console.log(data);
             if(data.link)
             history.pushState(data.link, '', data.link);
 
