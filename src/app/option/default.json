@@ -1,0 +1,16 @@
+{
+	"auth": {
+		"guest":{
+			"id": "ㅇㅇ",
+			"pw": "1234"
+		}
+	},
+	"write": {
+		"postfix": ""
+	},
+	"list": {
+		"view": "right",
+		"auto_refresh_ctime": 5000,
+        "next_page_wtime": 3000
+	}
+}

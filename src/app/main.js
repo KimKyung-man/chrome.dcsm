@@ -55,7 +55,7 @@ require([
         // if board/view,
         if (document.getElementById('no')) {
             var parsed = parser.content(document);
-            history.pushState(location.href, '', location.href);
+            parsed.link = location.href;
             control.article.update(parsed);
         }
     });

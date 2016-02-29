@@ -29,7 +29,7 @@ define([
             */
             var itemId = 'dcsm-dccon-list-' + data[i].index;
             
-            // head
+                // head
             var _elem_temp_a = document.createElement('a');
             var _elem_head = document.createElement('li');
             
@@ -40,7 +40,7 @@ define([
             _elem_head.setAttribute('role', 'presentation');
             _elem_head.appendChild(_elem_temp_a);
             
-            // body
+                // body
             var _elem_temp_ul = document.createElement('ul');
             var _elem_body = document.createElement('div');
             

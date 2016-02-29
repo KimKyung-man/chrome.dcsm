@@ -22,7 +22,9 @@ define([
             mask = document.getElementById('dcsm-article-mask');
         },
         update: function (data, srcItem) {
-            
+            if(data.link)
+            history.pushState(data.link, '', data.link);
+
             // add content A-tag event
             // it will be moved to module
             var tag_a = data.content.getElementsByTagName('a');
@@ -43,12 +45,13 @@ define([
                     }
                 }
 
-                if (targetURL) tag_a[i].addEventListener('click', function (e) {
+                if (targetURL) (function(targetURL){ tag_a[i].addEventListener('click', function (e) {
                     e.preventDefault();
                     contentReader(targetURL, function (data) {
+                        data.link = targetURL;
                         article.update(data);
                     })
-                })
+                })})(targetURL);
             }
             // end of: add content A-tag event
 

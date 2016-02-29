@@ -1,10 +1,10 @@
 /*
     parser/dccon.js
 */
-define([
-    './queryString'
-], function (qs) {
-
+define(function () {
+    
+    // check out control/dccon.js: dccon
+    // li.li_package
     function dccon(elem) {
         var rst = new Array;
         var pkgs = elem.children;
