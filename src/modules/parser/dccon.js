@@ -29,7 +29,9 @@ define(function () {
                     rstItem1['name'] = item.title;
                     rstItem1['packageIndex'] = rstItem0.index; 
                     rstItem1['index'] = item.getAttribute('detail_idx');
-                    rstItem1['icon_src'] = item.children[0].src;
+                    // bugfix
+                    rstItem1['icon_src'] = (item.children[0] != undefined)
+                      ? item.children[0].src : null;
 
                     rstItem0.items.push(rstItem1);
                 }

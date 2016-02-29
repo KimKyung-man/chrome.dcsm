@@ -2,7 +2,7 @@
     control/ListItem.js
 */
 define(function () {
-    
+
     function elemCstr(tagName, className, dataDcsm) {
         var rst = document.createElement(tagName);
         if (className) rst.className = className;
@@ -49,7 +49,7 @@ define(function () {
         _elem.appendChild(_temp_elem_td2);
         _elem.appendChild(_temp_elem_td3);
         // end of: elem create logic
-        
+
         this.elem = _elem;
         this.elem_author = _elem_author;
         this.elem_gallcon = _elem_gallcon;
@@ -90,17 +90,14 @@ define(function () {
     CommentItem.prototype.setIp = function (str) {
         this.elem_ip.textContent = str;
     }
-    
+
     CommentItem.prototype.setDate = function (str) {
         this.elem_date.textContent = str;
     }
-    
-    CommentItem.prototype.setDeleteBtn = function (itemHtml) {
-        if(!itemHtml)
-            return this.elem_delete_btn.innerHTML = "";
-        if (!this.elem_delete_btn.children.length)
-            this.elem_delete_btn.appendChild(itemHtml);
-        this.elem_delete_btn.children[0].src = itemHtml;
+
+    CommentItem.prototype.setDeleteBtn = function (deleteBtn) {
+        if(deleteBtn === null) return;
+        this.elem_delete_btn.appendChild(deleteBtn);
     }
 
     return CommentItem;
