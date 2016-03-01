@@ -28,10 +28,20 @@ define([
             /*
              * 댓글삭제 후 리프레쉬 상태에서는
              * gall_id와 gall_no를 가져오지 못할 뿐더러,
-             * 다시 초기화 할 이유가 없다.
+             * 해당 값을 다시 초기화 할 이유가 없다.
+             * 같은 갤러리 아이디와 글 아이디로
+             * 다시 댓글 리스트를 요청한다.
+             * 혹은 상태가 다른 경우는 글이 옮겨지고.
+             * refresh가 호출이 된 상태이다.
              */
-            if(!gall_id) gall_id = data.id || document.getElementById('id').value;
-            if(!gall_no) gall_no = data.num;
+            if(data){
+                if(!gall_no || gall_no !== data.num){
+                    gall_no = data.num;
+                }
+                if(!gall_id || gall_id !== data.id) {
+                    gall_id =  data.id;
+                }
+            }
 
             util.ajax({
                 'type': 'POST',
